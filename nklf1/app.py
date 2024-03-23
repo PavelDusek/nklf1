@@ -2,16 +2,17 @@
 from flask import Flask, render_template, redirect
 import pathlib
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 
 from forms import KultivaceForm, BilanceForm, LaborForm, SonoForm
 from labor import doLabor
 from kultivace import doKultivace
 from bilance import doBilance
 
-load_dotenv()
+load_dotenv(find_dotenv())
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+
 directory = pathlib.Path(os.path.dirname(__file__))
 
 #######
