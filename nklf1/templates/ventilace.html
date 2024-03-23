@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+	<hr />
+	<h2>Délka ventilace</h2>
+	<div id="root">
+		<div class="vent">
+			<select name="typ0" id="typ0">
+				<option value="UPV">UPV</option>
+				<option value="NIV">NIV</option>
+				<option value="HFNO">HFNO</option>
+			</select>
+			<label for="start0">Zacatek ventilace:</label>
+			<input type="datetime-local" name="start0" id="start0">
+			<label for="end0">Konec ventilace:</label>
+			<input type="datetime-local" name="end0" id="end0">
+			<span id="error0" class='error'></span>
+		</div>
+	</div>
+	<hr />
+	<button onclick="addVent()">Pridej ventilaci</button>
+	<button onclick="calculate()">Spocitej</button>
+	<hr />
+	Ventilace: <span id="celkem"></span> hodin (UPV: <span id="UPV"></span> hodin, NIV: <span id="NIV"></span> hodin, HFNO: <span id="HFNO"></span> hodin).
+{% endblock %}

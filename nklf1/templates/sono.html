@@ -1,0 +1,419 @@
+{% extends "base.html" %}
+{% block content %}
+<form method=POST>
+<p>{{form.year.label}}{{form.year()}}</p>
+<p>
+{{form.vji.label}}{{form.vji()}}
+{{form.thyroid.label}}{{form.thyroid()}}
+{{form.heart_rhytm.label}}{{form.heart_rhytm()}}
+</p>
+<hr />
+
+<p>
+{{form.imt_sn_max.label}}{{form.imt_sn_max()}}
+{{form.imt_sn_mean.label}}{{form.imt_sn_mean()}}
+{{form.acc_sn_psv.label}}{{form.acc_sn_psv()}}
+</p>
+
+<p>
+{{form.acc_sn_plaq_width.label}}{{form.acc_sn_plaq_width()}}
+{{form.acc_sn_plaq_echo.label}}{{form.acc_sn_plaq_echo()}}
+{{form.acc_sn_plaq_surf.label}}{{form.acc_sn_plaq_surf()}}
+</p>
+
+<p>
+{{form.aci_sn_laminar.label}}{{form.aci_sn_laminar()}}
+{{form.aci_sn_prox_psv.label}}{{form.aci_sn_prox_psv()}}
+{{form.aci_sn_prox_edv.label}}{{form.aci_sn_prox_edv()}}
+{{form.aci_sn_prox_pi.label}}{{form.aci_sn_prox_pi()}}
+{{form.aci_sn_prox_ri.label}}{{form.aci_sn_prox_ri()}}
+{{form.aci_sn_dist_psv.label}}{{form.aci_sn_dist_psv()}}
+{{form.aci_sn_dist_edv.label}}{{form.aci_sn_dist_edv()}}
+{{form.aci_sn_dist_pi.label}}{{form.aci_sn_dist_pi()}}
+{{form.aci_sn_dist_ri.label}}{{form.aci_sn_dist_ri()}}
+{{form.aci_sn_dist_mm.label}}{{form.aci_sn_dist_mm()}}
+</p>
+
+<p>
+{{form.ace_sn_psv.label}}{{form.ace_sn_psv()}}
+{{form.sub_sn_psv.label}}{{form.sub_sn_psv()}}
+</p>
+<hr />
+
+<p>
+{{form.v2_sn_psv.label}}{{form.v2_sn_psv()}}
+{{form.v2_sn_edv.label}}{{form.v2_sn_edv()}}
+{{form.v2_sn_pi.label}}{{form.v2_sn_pi()}}
+{{form.v2_sn_ri.label}}{{form.v2_sn_ri()}}
+{{form.v2_sn_mm.label}}{{form.v2_sn_mm()}}
+{{form.v1_sn_psv.label}}{{form.v1_sn_psv()}}
+{{form.v1_sn_edv.label}}{{form.v1_sn_edv()}}
+{{form.v1_sn_pi.label}}{{form.v1_sn_pi()}}
+{{form.v1_sn_ri.label}}{{form.v1_sn_ri()}}
+{{form.v1_sn_mm.label}}{{form.v1_sn_mm()}}
+{{form.v0_sn_psv.label}}{{form.v0_sn_psv()}}
+{{form.v0_sn_edv.label}}{{form.v0_sn_edv()}}
+{{form.v0_sn_pi.label}}{{form.v0_sn_pi()}}
+{{form.v0_sn_ri.label}}{{form.v0_sn_ri()}}
+{{form.v0_sn_mm.label}}{{form.v0_sn_mm()}}
+{{form.v3_sn_psv.label}}{{form.v3_sn_psv()}}
+{{form.v3_sn_edv.label}}{{form.v3_sn_edv()}}
+{{form.v3_sn_pi.label}}{{form.v3_sn_pi()}}
+{{form.v3_sn_ri.label}}{{form.v3_sn_ri()}}
+{{form.v3_sn_mm.label}}{{form.v3_sn_mm()}}
+</p>
+<hr />
+
+<p>
+{{form.imt_dx_max.label}}{{form.imt_dx_max()}}
+{{form.imt_dx_mean.label}}{{form.imt_dx_mean()}}
+{{form.acc_dx_psv.label}}{{form.acc_dx_psv()}}
+</p>
+
+<p>
+{{form.acc_dx_plaq_width.label}}{{form.acc_dx_plaq_width()}}
+{{form.acc_dx_plaq_echo.label}}{{form.acc_dx_plaq_echo()}}
+{{form.acc_dx_plaq_surf.label}}{{form.acc_dx_plaq_surf()}}
+</p>
+
+<p>
+{{form.aci_dx_laminar.label}}{{form.aci_dx_laminar()}}
+{{form.aci_dx_prox_psv.label}}{{form.aci_dx_prox_psv()}}
+{{form.aci_dx_prox_edv.label}}{{form.aci_dx_prox_edv()}}
+{{form.aci_dx_prox_pi.label}}{{form.aci_dx_prox_pi()}}
+{{form.aci_dx_prox_ri.label}}{{form.aci_dx_prox_ri()}}
+{{form.aci_dx_dist_psv.label}}{{form.aci_dx_dist_psv()}}
+{{form.aci_dx_dist_edv.label}}{{form.aci_dx_dist_edv()}}
+{{form.aci_dx_dist_pi.label}}{{form.aci_dx_dist_pi()}}
+{{form.aci_dx_dist_ri.label}}{{form.aci_dx_dist_ri()}}
+{{form.aci_dx_dist_mm.label}}{{form.aci_dx_dist_mm()}}
+</p>
+
+<p>
+{{form.ace_dx_psv.label}}{{form.ace_dx_psv()}}
+{{form.sub_dx_psv.label}}{{form.sub_dx_psv()}}
+</p>
+<hr />
+
+<p>
+{{form.v2_dx_psv.label}}{{form.v2_dx_psv()}}
+{{form.v2_dx_edv.label}}{{form.v2_dx_edv()}}
+{{form.v2_dx_pi.label}}{{form.v2_dx_pi()}}
+{{form.v2_dx_ri.label}}{{form.v2_dx_ri()}}
+{{form.v2_dx_mm.label}}{{form.v2_dx_mm()}}
+{{form.v1_dx_psv.label}}{{form.v1_dx_psv()}}
+{{form.v1_dx_edv.label}}{{form.v1_dx_edv()}}
+{{form.v1_dx_pi.label}}{{form.v1_dx_pi()}}
+{{form.v1_dx_ri.label}}{{form.v1_dx_ri()}}
+{{form.v1_dx_mm.label}}{{form.v1_dx_mm()}}
+{{form.v0_dx_psv.label}}{{form.v0_dx_psv()}}
+{{form.v0_dx_edv.label}}{{form.v0_dx_edv()}}
+{{form.v0_dx_pi.label}}{{form.v0_dx_pi()}}
+{{form.v0_dx_ri.label}}{{form.v0_dx_ri()}}
+{{form.v0_dx_mm.label}}{{form.v0_dx_mm()}}
+{{form.v3_dx_psv.label}}{{form.v3_dx_psv()}}
+{{form.v3_dx_edv.label}}{{form.v3_dx_edv()}}
+{{form.v3_dx_pi.label}}{{form.v3_dx_pi()}}
+{{form.v3_dx_ri.label}}{{form.v3_dx_ri()}}
+{{form.v3_dx_mm.label}}{{form.v3_dx_mm()}}
+</p>
+<hr />
+
+<p>
+{{form.ophth_sn_mm.label}}{{form.ophth_sn_mm()}}
+{{form.ophth_sn_psv.label}}{{form.ophth_sn_psv()}}
+{{form.ophth_sn_edv.label}}{{form.ophth_sn_edv()}}
+{{form.ophth_sn_pi.label}}{{form.ophth_sn_pi()}}
+{{form.ophth_sn_ri.label}}{{form.ophth_sn_ri()}}
+</p>
+
+<p>
+{{form.ophth_dx_mm.label}}{{form.ophth_dx_mm()}}
+{{form.ophth_dx_psv.label}}{{form.ophth_dx_psv()}}
+{{form.ophth_dx_edv.label}}{{form.ophth_dx_edv()}}
+{{form.ophth_dx_pi.label}}{{form.ophth_dx_pi()}}
+{{form.ophth_dx_ri.label}}{{form.ophth_dx_ri()}}
+</p>
+<hr />
+
+<p>
+{{form.tm_sn_okno.label}}{{form.tm_sn_okno()}}
+{{form.ACM_sn_mm.label}}{{form.ACM_sn_mm()}}
+{{form.ACM_sn_psv.label}}{{form.ACM_sn_psv()}}
+{{form.ACM_sn_vm.label}}{{form.ACM_sn_vm()}}
+{{form.ACM_sn_pi.label}}{{form.ACM_sn_pi()}}
+{{form.ACM_sn_ri.label}}{{form.ACM_sn_ri()}}
+{{form.ACA_sn_psv.label}}{{form.ACA_sn_psv()}}
+{{form.ACA_sn_vm.label}}{{form.ACA_sn_vm()}}
+{{form.ACA_sn_pi.label}}{{form.ACA_sn_pi()}}
+{{form.ACA_sn_ri.label}}{{form.ACA_sn_ri()}}
+{{form.P1_sn_psv.label}}{{form.P1_sn_psv()}}
+{{form.P1_sn_vm.label}}{{form.P1_sn_vm()}}
+{{form.P1_sn_pi.label}}{{form.P1_sn_pi()}}
+{{form.P1_sn_ri.label}}{{form.P1_sn_ri()}}
+{{form.P2_sn_psv.label}}{{form.P2_sn_psv()}}
+{{form.P2_sn_vm.label}}{{form.P2_sn_vm()}}
+{{form.P2_sn_pi.label}}{{form.P2_sn_pi()}}
+{{form.P2_sn_ri.label}}{{form.P2_sn_ri()}}
+</p>
+<hr />
+
+<p>
+{{form.tm_dx_okno.label}}{{form.tm_dx_okno()}}
+{{form.ACM_dx_mm.label}}{{form.ACM_dx_mm()}}
+{{form.ACM_dx_psv.label}}{{form.ACM_dx_psv()}}
+{{form.ACM_dx_vm.label}}{{form.ACM_dx_vm()}}
+{{form.ACM_dx_pi.label}}{{form.ACM_dx_pi()}}
+{{form.ACM_dx_ri.label}}{{form.ACM_dx_ri()}}
+{{form.ACA_dx_psv.label}}{{form.ACA_dx_psv()}}
+{{form.ACA_dx_vm.label}}{{form.ACA_dx_vm()}}
+{{form.ACA_dx_pi.label}}{{form.ACA_dx_pi()}}
+{{form.ACA_dx_ri.label}}{{form.ACA_dx_ri()}}
+{{form.P1_dx_psv.label}}{{form.P1_dx_psv()}}
+{{form.P1_dx_vm.label}}{{form.P1_dx_vm()}}
+{{form.P1_dx_pi.label}}{{form.P1_dx_pi()}}
+{{form.P1_dx_ri.label}}{{form.P1_dx_ri()}}
+{{form.P2_dx_psv.label}}{{form.P2_dx_psv()}}
+{{form.P2_dx_vm.label}}{{form.P2_dx_vm()}}
+{{form.P2_dx_pi.label}}{{form.P2_dx_pi()}}
+{{form.P2_dx_ri.label}}{{form.P2_dx_ri()}}
+</p>
+<hr />
+
+<p>
+{{form.V4_sn_psv.label}}{{form.V4_sn_psv()}}
+{{form.V4_sn_vm.label}}{{form.V4_sn_vm()}}
+{{form.V4_sn_pi.label}}{{form.V4_sn_pi()}}
+{{form.V4_sn_ri.label}}{{form.V4_sn_ri()}}
+{{form.V4_dx_psv.label}}{{form.V4_dx_psv()}}
+{{form.V4_dx_vm.label}}{{form.V4_dx_vm()}}
+{{form.V4_dx_pi.label}}{{form.V4_dx_pi()}}
+{{form.V4_dx_ri.label}}{{form.V4_dx_ri()}}
+{{form.AB_junkce.label}}{{form.AB_junkce()}}
+{{form.AB_hloubka.label}}{{form.AB_hloubka()}}
+{{form.AB_psv.label}}{{form.AB_psv()}}
+{{form.AB_vm.label}}{{form.AB_vm()}}
+{{form.AB_pi.label}}{{form.AB_pi()}}
+{{form.AB_ri.label}}{{form.AB_ri()}}
+</p>
+<hr />
+<p>
+{{form.echo.label}}{{form.echo()}}<br />
+{{form.echo_dilatace.label}}{{form.echo_dilatace()}}
+{{form.echo_lav.label}}{{form.echo_lav()}}
+{{form.echo_lavi.label}}{{form.echo_lavi()}}
+
+{{form.echo_lv_sys.label}}{{form.echo_lv_sys()}}
+{{form.echo_ef.label}}{{form.echo_ef()}}
+{{form.echo_fs.label}}{{form.echo_fs()}}
+{{form.echo_mapse.label}}{{form.echo_mapse()}}
+
+{{form.echo_lv_dia.label}}{{form.echo_lv_dia()}}
+{{form.echo_ea.label}}{{form.echo_ea()}}
+
+{{form.echo_rv_sys.label}}{{form.echo_rv_sys()}}
+{{form.echo_tapse.label}}{{form.echo_tapse()}}
+
+{{form.echo_co_interpretace.label}}{{form.echo_co_interpretace()}}
+{{form.echo_lvot_vti.label}}{{form.echo_lvot_vti()}}
+{{form.echo_co.label}}{{form.echo_co()}}
+{{form.echo_ci.label}}{{form.echo_ci()}}
+</p>
+<ol>
+	<li>Normal diastolic function (E &gt; A)</li>
+	<li>Impaired relaxation (E:A reversal i.e., E is &lt; A)</li>
+	<li>Pseudonormal (E:A ratio appears normal)</li>
+	<li>Restrictive filling (E:A ratio often &lt; 2)</li>
+</ol>
+<hr />
+<p>{{form.submit()}}</p>
+</form>
+
+<hr/>
+<hr/>
+<p>Provedeno duplexní sono extrakraniálního úseku karotid a vertebrobazilárního povodí na přístroji Toshiba 4D Aplio 300, M10/02918, FDA 1372071:</p>
+
+<p>
+{% if form.vji.data %}
+Vena jugularis interna bilaterálně dobře kompresibilní.<br />
+{% else %}
+Vena jugularis interna <b>nekompresibilní</b>.<br />
+{% endif %}
+
+{% if form.thyroid.data %}
+Parenchym štítné žlázy homogenní.<br />
+{% else %}
+Parenchym štítné žlázy <b>nehomogenní</b>.<br />
+{% endif %}
+
+{% if form.heart_rhytm.data %}
+Srdeční akce během vyšetření pravidelná.
+{% else %}
+<p>Srdeční akce během vyšetření <b>nepravidelná</b>.
+{% endif %}
+</p>
+
+<p>
+<i>Arteria carotis communis sinistra</i> přehledná v celém průběhu, IMT max. {{form.imt_sn_max.data}} mm, mean {{form.imt_sn_mean.data}} mm, PSV {{form.acc_sn_psv.data}} cm/s. 
+{% if form.acc_sn_plaq_width.data %}
+<b>Plát</b> {{form.acc_sn_plaq_echo.data}} {{form.acc_sn_plaq_echo.data}} o tloušťce {{form.acc_sn_plaq_width}} mm.
+{% endif %}
+<br />
+
+<i>Arteria carotis communis</i> dextra přehledná v celém průběhu, IMT max. {{form.imt_dx_max.data}} mm, mean {{form.imt_dx_mean.data}} mm, PSV {{form.acc_dx_psv.data}} cm/s.
+{% if form.acc_dx_plaq_width.data %}
+<b>Plát</b> {{form.acc_dx_plaq_echo.data}} {{form.acc_dx_plaq_echo.data}} o tloušťce {{form.acc_dx_plaq_width}} mm.
+{% endif %}
+</p>
+
+<p>
+<i>Arteria carotis interna sinistra</i> s 
+{% if form.aci_sn_laminar.data %}
+laminární tokem,
+{% else %}
+<b>turbulentním</b> tokem,
+{% endif %}
+v odstupu PSV {{form.aci_sn_prox_psv.data}} cm/s, EDV {{form.aci_sn_prox_edv.data}} cm/s, PI {{form.aci_sn_prox_pi.data}}, RI {{form.aci_sn_prox_ri.data}}, distálně PSV {{form.aci_sn_dist_psv.data}} cm/s, EDV {{form.aci_sn_dist_edv.data}} cm/s, PI {{form.aci_sn_dist_pi.data}}, RI {{form.aci_sn_dist_ri.data}}, šíře tepny {{form.aci_sn_dist_mm.data}} mm.<br />
+
+<i>Arteria carotis interna dextra</i> s 
+{% if form.aci_dx_laminar.data %}
+laminární tokem,
+{% else %}
+<b>turbulentním</b> tokem,
+{% endif %}
+v odstupu PSV {{form.aci_dx_prox_psv.data}} cm/s, EDV {{form.aci_dx_prox_edv.data}} cm/s, PI {{form.aci_dx_prox_pi.data}}, RI {{form.aci_dx_prox_ri.data}}, distálně PSV {{form.aci_dx_dist_psv.data}} cm/s, EDV {{form.aci_dx_dist_edv.data}} cm/s, PI {{form.aci_dx_dist_pi.data}}, RI {{form.aci_dx_dist_ri.data}}, šíře tepny {{form.aci_dx_dist_mm.data}} mm.
+</p>
+
+<p></p>
+
+<p>
+<i>Arteria carotis externa sinistra</i> s normálními hodnotami průtokových rychlostí, PSV {{form.ace_sn_psv.data}} cm/s.<br />
+<i>Arteria carotis externa dextra</i> s normálními hodnotami průtokových rychlostí, PSV {{form.ace_dx_psv.data}} cm/s.
+</p>
+
+<p>
+<i>Arteria subclavia sinistra</i> s normální vysokorezistentní průtokovou křivkou, PSV {{form.sub_sn_psv.data}} cm/s.<br />
+<i>Arteria subclavia dextra</i> s normální vysokorezistentní průtokovou křivkou, PSV {{form.sub_dx_psv.data}} cm/s.
+</p>
+<p></p>
+
+<p>
+<i>Arteria vertebralis sinistra</i> přehledná, vyšetřena v segmentech V0/V1/V2/V3. Směr toku je ortográdní, dopplerovský signál v úseku V1–V2 s laminárním tokem.<br />
+V0 vlevo: PSV {{form.v0_sn_psv.data}} cm/s, EDV {{form.v0_sn_edv.data}} cm/s, PI {{form.v0_sn_pi.data}}, RI {{form.v0_sn_ri.data}}, šíře tepny {{form.v0_sn_mm.data}} mm.<br />
+V1 vlevo: PSV {{form.v1_sn_psv.data}} cm/s, EDV {{form.v1_sn_edv.data}} cm/s, PI {{form.v1_sn_pi.data}}, RI {{form.v1_sn_ri.data}}, šíře tepny {{form.v1_sn_mm.data}} mm.<br />
+V2 vlevo: PSV {{form.v2_sn_psv.data}} cm/s, EDV {{form.v2_sn_edv.data}} cm/s, PI {{form.v2_sn_pi.data}}, RI {{form.v2_sn_ri.data}}, šíře tepny {{form.v2_sn_mm.data}} mm.<br />
+V3 vlevo: PSV {{form.v3_sn_psv.data}} cm/s, EDV {{form.v3_sn_edv.data}} cm/s, PI {{form.v3_sn_pi.data}}, RI {{form.v3_sn_ri.data}}, šíře tepny {{form.v3_sn_mm.data}} mm.
+</p>
+
+<p>
+<i>Arteria vertebralis dextra</i> přehledná, vyšetřena v segmentech V0/V1/V2/V3. Směr toku je ortográdní, dopplerovský signál v úseku V1–V2 s laminárním tokem.<br />
+V0 vpravo: PSV {{form.v0_dx_psv.data}} cm/s, EDV {{form.v0_dx_edv.data}} cm/s, PI {{form.v0_dx_pi.data}}, RI {{form.v0_dx_ri.data}}, šíře tepny {{form.v0_dx_mm.data}} mm.<br />
+V1 vpravo: PSV {{form.v1_dx_psv.data}} cm/s, EDV {{form.v1_dx_edv.data}} cm/s, PI {{form.v1_dx_pi.data}}, RI {{form.v1_dx_ri.data}}, šíře tepny {{form.v1_dx_mm.data}} mm.<br />
+V2 vpravo: PSV {{form.v2_dx_psv.data}} cm/s, EDV {{form.v2_dx_edv.data}} cm/s, PI {{form.v2_dx_pi.data}}, RI {{form.v2_dx_ri.data}}, šíře tepny {{form.v2_dx_mm.data}} mm.<br />
+V3 vpravo: PSV {{form.v3_dx_psv.data}} cm/s, EDV {{form.v3_dx_edv.data}} cm/s, PI {{form.v3_dx_pi.data}}, RI {{form.v3_dx_ri.data}}, šíře tepny {{form.v3_dx_mm.data}} mm.
+</p>
+<p></p>
+
+{% if not form.v1_sn_psv.data %}
+<p><i>Arteria vertebralis sinistra</i> přehledná v segmentu V2, směr toku je ortográdní, dopplerovský signál s laminárním tokem, PSV {{form.v2_sn_psv.data}} cm/s, EDV {{form.v2_sn_edv.data}} cm/s, PI {{form.v2_sn_pi.data}}, RI {{form.v2_sn_ri.data}}, šíře tepny {{form.v2_sn_mm.data}} mm.</p>
+{% endif %}
+
+{% if not form.v1_dx_psv.data %}
+<p><i>Arteria vertebralis dextra</i> přehledná v segmentu V2, směr toku je ortográdní, dopplerovský signál s laminárním tokem, PSV {{form.v2_dx_psv.data}} cm/s, EDV {{form.v2_dx_edv.data}} cm/s, PI {{form.v2_dx_pi.data}}, RI {{form.v2_dx_ri.data}}, šíře tepny {{form.v2_dx_mm.data}} mm.</p>
+{% endif %}
+<p></p>
+
+{% if form.ophth_sn_psv.data %}
+<p><i>Arteria ophthalmica sinistra</i> v hloubi {{form.ophth_sn_mm.data}} mm s ortográdním laminárním tokem PSV {{form.ophth_sn_psv.data}} cm/s, EDV {{form.ophth_sn_edv.data}} cm/s, PI {{form.ophth_sn_pi.data}}, RI {{form.ophth_sn_ri.data}}.</p>
+{% endif %}
+{% if form.ophth_dx_psv.data %}
+<p><i>Arteria ophthalmica dextra</i> v hloubi {{form.ophth_dx_mm.data}} mm s ortográdním laminárním tokem PSV {{form.ophth_dx_psv.data}} cm/s, EDV {{form.ophth_dx_edv.data}} cm/s, PI {{form.ophth_dx_pi.data}}, RI {{form.ophth_dx_ri.data}}.</p>
+{% endif %}
+<p></p>
+
+<p>
+Transforaminálně zachyceny segmenty V4 bilaterálně s ortográdním tokem:<br />
+V4 vlevo: PSV {{form.V4_sn_psv.data}} cm/s, Vm {{form.V4_sn_vm.data}} cm/s, PI {{form.V4_sn_pi.data}}, RI {{form.V4_sn_ri.data}}.<br />
+V4 vpravo: PSV {{form.V4_dx_psv.data}} cm/s, Vm {{form.V4_dx_vm.data}} cm/s, PI {{form.V4_dx_pi.data}}, RI {{form.V4_dx_ri.data}}.<br />
+Junkce v hloubi {{form.AB_junkce.data}} mm, a. basilaris sledována do hloubi {{form.AB_hloubka.data}} mm, kde PSV {{form.AB_psv.data}} cm/s, Vm {{form.AB_vm.data}} cm/s, PI {{form.AB_pi.data}}, RI {{form.AB_ri.data}}.
+</p>
+<p></p>
+
+<p>
+Temporální okénko vlevo 
+{% if form.tm_sn_okno.data %}
+dobře propustné,
+{% else %}
+hůře propustné,
+{% endif %}
+ vpravo 
+{% if form.tm_dx_okno.data %}
+dobře propustné
+{% else %}
+hůře propustné
+{% endif %}
+ pro ultrazvukové vlnění. Zobrazeny následující segmenty, je v nich laminární tok:<br />
+
+<i>Arteria cerebri media sinistra</i> v M1 v {{form.ACM_sn_mm.data}} mm PSV {{form.ACM_sn_psv.data}} cm/s, Vm {{form.ACM_sn_vm.data}} cm/s, PI {{form.ACM_sn_pi.data}}, RI {{form.ACM_sn_ri.data}}.<br />
+<i>Arteria cerebri media dextra</i> v M1 v {{form.ACM_dx_mm.data}} mm PSV {{form.ACM_dx_psv.data}} cm/s, Vm {{form.ACM_dx_vm.data}} cm/s, PI {{form.ACM_dx_pi.data}}, RI {{form.ACM_dx_ri.data}}.<br />
+
+{% if form.ACA_sn_psv.data %}
+<i>Arteria cerebri anterior sinistra</i> v A1 PSV {{form.ACA_sn_psv.data}} cm/s, Vm {{form.ACA_sn_vm.data}} cm/s, PI {{form.ACA_sn_pi.data}}, RI {{form.ACA_sn_ri.data}}.<br />
+{% endif %}
+{% if form.ACA_dx_psv.data %}
+<i>Arteria cerebri anterior dextra</i> v A1 PSV {{form.ACA_dx_psv.data}} cm/s, Vm {{form.ACA_dx_vm.data}} cm/s, PI {{form.ACA_dx_pi.data}}, RI {{form.ACA_dx_ri.data}}.<br />
+{% endif %}
+
+{% if form.P1_sn_psv.data or form.P2_sn_psv.data %}
+<i>Arteria cerebri posterior sinistra</i> v 
+{% if form.P1_sn_psv.data %}
+P1 PSV {{form.P1_sn_psv.data}} cm/s, Vm {{form.P1_sn_vm.data}} cm/s, PI {{form.P1_sn_pi.data}}, RI {{form.P1_sn_ri.data}}, 
+{% endif %}
+{% if form.P2_sn_psv.data %}
+P2 PSV {{form.P2_sn_psv.data}} cm/s, Vm {{form.P2_sn_vm.data}} cm/s, PI {{form.P2_sn_pi.data}}, RI {{form.P2_sn_ri.data}}
+{% endif %}
+.<br />
+{% endif %}
+{% if form.P1_dx_psv.data or form.P2_dx_psv.data %}
+<i>Arteria cerebri posterior dextra</i> v 
+{% if form.P1_dx_psv.data %}
+P1 PSV {{form.P1_dx_psv.data}} cm/s, Vm {{form.P1_dx_vm.data}} cm/s, PI {{form.P1_dx_pi.data}}, RI {{form.P1_dx_ri.data}}, 
+{% endif %}
+{% if form.P2_dx_psv.data %}
+P2 PSV {{form.P2_dx_psv.data}} cm/s, Vm {{form.P2_dx_vm.data}} cm/s, PI {{form.P2_dx_pi.data}}, RI {{form.P2_dx_ri.data}}
+{% endif %}
+.
+{% endif %}
+</p>
+<p></p>
+
+{%if form.echo.data %}
+<p>
+Orientační transtorakální echokardiografie bed-side:<br />
+Bez patrné regionální poruchy kinetiky. Srdeční oddíly 
+{% if form.echo_dilatace %}
+dilatované
+{% else %}
+bez dilatace 
+{% endif %}
+(LAV {{form.echo_lav.data}} ml, LAVi {{form.echo_lavi.data}} ml/m2).<br />
+Systolická funkce levé komory {{form.echo_lv_sys.data}} (EF LK {{form.echo_ef.data}} %, fractional shortening {{form.echo_fs.data}} %, MAPSE {{form.echo_mapse.data}} mm).<br />
+Diastolická funkce levé komory {{form.echo_lv_dia.data}} (E/A {{form.echo_ea.data}}).<br />
+Srdeční výdej {{form.c_interpretace}} (LVOT VTI {{form.echo_lvot_vti.data}}, CO {{form.echo_co.data}} l/min., CI {{form.echo_ci.data}} l/min./m2).<br />
+Aortální, mitrální a trikuspidální chlopeň bez významné vady.<br />
+Tenze v plicnici nezvýšená.<br />
+Dolní dutá žíla nedilatovaná kolabujicí s dechovým cyklem.<br />
+Perikard bez separace.<br />
+</p>
+{% endif %}
+
+<p></p>
+<p><b>Závěr:</b></p>
+<p>
+Nález v extrakraniálním úseku karotid a vertebrálních tepen bez fokálních stenotických změn.<br />
+Transkraniálně v zobrazených úsecích bez fokálních stenotických změn.
+</p>
+
+<p></p>
+<p>MUDr. Pavel Dušek</p>
+{% endblock %}

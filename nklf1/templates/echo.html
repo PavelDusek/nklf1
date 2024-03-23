@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+	<h2>ECHO</h2>
+	<h3>LVOT VTI</h3>
+		<fieldset><label for="PSV"   >PSV   </label><input type="number" id="PSV"    value = "1.0"  /></fieldset><br/>
+		<fieldset><label for="EDV"   >EDV   </label><input type="number" id="EDV"    value = "1.0"  /></fieldset><br/>
+		<fieldset><label for="PI"    >PI    </label><input type="number" id="PI"     value = "1.0"  /></fieldset><br/>
+		<fieldset><label for="time"  >time  </label><input type="number" id="time"   value = "1.0"  /></fieldset><br/>
+		<fieldset><label for="HR"    >HR    </label><input type="number" id="HR"     value = "1.0"  /></fieldset><br/>
+		<fieldset><label for="LVOT"  >LVOT  </label><input type="number" id="LVOT"   value = "1.0"  /></fieldset><br/>
+		<fieldset><label for="height">height</label><input type="number" id="height" value = "1.0"  /></fieldset><br/>
+		<fieldset><label for="weight">weight</label><input type="number" id="weight" value = "1.0"  /></fieldset><br/>
+		<button type="button" onClick="echo_CO();">Spocitej</button>
+		<div id='echo_output_CI'></div>
+		<p>Normal VTI &gt; 20 cm, normal cardiac index 2.6–4.2 l/min/m<sup>2</sup>, if it falls acutely below 2.2 l/min./m<sup>2</sup>, the patient may be in cardiogenic shock.</p>
+		<hr />
+	<h3>LVOT Vmax respiration variability (Pulse pressure variation, PPV)</h3>
+		<fieldset><label for="P1">P1</label><input type="number" id="P1" value = "1.0" /></fieldset><br/>
+		<fieldset><label for="P2">P2</label><input type="number" id="P2" value = "1.0" /></fieldset><br/>
+		<div id='echo_output_PPV'></div>
+		<button type="button" onClick="echo_PPV();">Spocitej</button>
+		<p>Fluid responsiveness: PPV &gt; 12 %. Sinusovy rytmus. UPV bez spotanni dechove aktivity. VT min. 8 ml/kg, driving pressure nad 20 cm H2O, normalni plicni poddajnost, absence IAH. Falesne pozitivni u pulsus paradoxus a dysfunkce RV.</p>
+		<hr />
+
+	<h3>Collapsibility/distensibility index IVC</h3>
+		<fieldset><label for="IVC1">IVC1</label><input type="number" id="IVC1" value = "1.0" /></fieldset><br/>
+		<fieldset><label for="IVC2">IVC2</label><input type="number" id="IVC2" value = "1.0" /></fieldset><br/>
+		<div id='echo_output_IVC'></div>
+		<button type="button" onClick="echo_IVC();">Spocitej</button>
+		<p>Fluid responsiveness: collapsiblity (spont) &gt; (12)–20–(40) %, distensibillity (UPV) &gt; 12 %.</p>
+		<hr />
+{% endblock %}

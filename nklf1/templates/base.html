@@ -1,0 +1,345 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>nklf1.cz (konverze výsledků, výpočty bilancí, kalkulačky)</title>
+		<style>
+			textarea.input {
+				width: 80%;
+				height: 50%;
+				margin-left: 10%;
+			}
+			textarea.reg {
+				width: 50%;
+				margin-left: 10%;
+			}
+			input.submit {
+				margin-left: 10%;
+			}
+			#output {
+				margin-left: 10%;
+			}
+			button.button {
+				margin-left: 10%;
+			}
+			table {
+				border: 1px solid black;
+				border-collapse: collapse;
+				text-align: left;
+			}
+			th, td {
+				border: 1px solid black;
+				border-collapse: collapse;
+				padding: 10px;
+			}
+			.prijem {
+				fill: steelblue;
+				font-size: 12px;
+			}
+			.vydej {
+				fill: gold;
+				font-size: 12px;
+			}
+			.teplota {
+				 stroke: tomato;
+				 stroke-width: 1.5;
+		  		 font-size: 12px;
+			}
+			.error {
+				color: red;
+				font-weight: bold;
+			}
+		</style>
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script language="javascript">
+			function echo_CO() {
+				var PSV     = parseFloat($('#PSV'   ).val());
+				var EDV     = parseFloat($('#EDV'   ).val());
+				var PI      = parseFloat($('#PI'    ).val());
+				var time    = parseFloat($('#time'  ).val());
+				var HR      = parseFloat($('#HR'    ).val());
+				var LVOT    = parseFloat($('#LVOT'  ).val());
+				var height  = parseFloat($('#height').val());
+				var weight  = parseFloat($('#weight').val());
+				var area    = 3.14 * Math.pow( (LVOT/2), 2 );
+				var Vmean   = (Math.abs(PSV) - Math.abs(EDV))/PI;
+				var systole = 60/time;
+				var VTI     = Vmean * systole;
+				var stroke  = VTI * area;
+				var CO      = stroke * HR;
+				var body    = Math.pow(weight,0.425)*Math.pow(height,0.725)*0.007184;
+				var CI      = CO/body;
+
+				var output  = "VTI: " + VTI.toPrecision(2) + " cm, pulzovy objem: " + stroke.toPrecision(3) + " ml, srdecni vydej: " + CO.toPrecision(4) + " ml/min., srdecni index: " + CI.toPrecision(4) + " ml/min/m2.";
+				$('#echo_output_CI').html(output);				
+			}
+
+			function echo_PPV() {
+				var P1 = parseFloat($('#P1').val());
+				var P2 = parseFloat($('#P2').val());
+				var PPV = (Math.max(P1, P2) - Math.min(P1, P2) )/ (0.5*(P1 + P2));
+				var PPV_perc = 100 * PPV.toPrecision(3);
+				var output = "PPV: " + PPV_perc + " %.";
+				$('#echo_output_PPV').html(output);				
+			}
+			function echo_IVC() {
+				var IVC1 = parseFloat($('#IVC1').val());
+				var IVC2 = parseFloat($('#IVC2').val());
+				var collapsibility = (Math.max(IVC1, IVC2) - Math.min(IVC1, IVC2)) / Math.max(IVC1, IVC2)
+				var distensibility = (Math.max(IVC1, IVC2) - Math.min(IVC1, IVC2)) / Math.min(IVC1, IVC2)
+				var dist_perc = distensibility.toPrecision(3) * 100;
+				var coll_perc = collapsibility.toPrecision(3) * 100;
+				var output = "Collapsiblity index: " + dist_perc + " %. Distensibility index: " + coll_perc + " %.";
+				$('#echo_output_IVC').html(output);				
+			}
+
+			$('#PSV'   ).change( echo_CO() );
+			$('#EDV'   ).change( echo_CO() );
+			$('#PI'    ).change( echo_CO() );
+			$('#time'  ).change( echo_CO() );
+			$('#HR'    ).change( echo_CO() );
+			$('#LVOT'  ).change( echo_CO() );
+			$('#height').change( echo_CO() );
+			$('#weight').change( echo_CO() );
+			$('#P1').change(     echo_PPV());
+			$('#P2').change(     echo_PPV());
+			$('#IVC1').change(   echo_IVC());
+			$('#IVC2').change(   echo_IVC());
+		</script>
+		<script language="javascript">
+			function CopyToClipboard(containerid) {
+				if (document.selection) {
+				    var range = document.body.createTextRange();
+				    range.moveToElementText(document.getElementById(containerid));
+				    range.select().createTextRange();
+				    document.execCommand("copy");
+
+				} else if (window.getSelection) {
+				    var range = document.createRange();
+				     range.selectNode(document.getElementById(containerid));
+				     window.getSelection().addRange(range);
+				     document.execCommand("copy");
+				}
+			}
+
+			function drawChart() {
+				const data = [
+					{% for vysledek in vysledky%}
+					{"datum": "{{vysledek.d}}", "prijem": {{vysledek.p}}, "vydej": {{vysledek.v}}, "bilance": {{vysledek.cumulative}}, "teplota": {{vysledek.t}} },
+					{% endfor %}
+				];
+				var prijem  = data.map( function(d) { return d.prijem; } );
+				var vydej   = data.map( function(d) { return d.vydej ; } );
+				var bilance = data.map( function(d) { return d.bilance ; } );
+				var teplota = data.map( function(d) { return d.teplota ; } );
+
+				var 	chart   = d3.select("#chart"),
+					width   = chart.attr("width"),
+					height  = chart.attr("height"),
+					temp    = d3.select("#temperature"),
+					twidth  = temp.attr("width"),
+					theight = temp.attr("height");
+	
+				var 	xScale  = d3.scaleBand().range([0, width]).padding(0.4),
+					yScale  = d3.scaleLinear().range([height, 0]);
+					tScale  = d3.scaleLinear().range([theight, 0]);
+
+				xScale.domain( data.map( function(d) { return d.datum; } ) );
+				yScale.domain( [0, d3.max( prijem.concat(vydej) ) + d3.max(bilance) ]);
+				tScale.domain( [d3.min( teplota ), d3.max( teplota )] );
+
+				//x Axis
+				chart
+				  .append("g")
+				  .attr("class", "xaxis")
+				  .attr( "transform", "translate(0, " + height + ")" )
+				  .call( d3.axisBottom(xScale) )
+				  .selectAll("text")
+				  .style("text-anchor", "end")
+				  .attr("dx", "-.8em")
+				  .attr("dy", ".15em")
+				  .attr("transform", "rotate(-30)");
+	
+				//y Axis
+				chart
+				  .append("g")
+				  .attr("class", "yaxis")
+				  .call(d3.axisLeft(yScale).tickFormat( d => d ).ticks(15));
+
+				//t Axis
+				temp
+				  .append("g")
+				  .attr("class", "taxis")
+				  .attr("transform", "translate(" + (width) + ", 0)" )
+				  .call( d3.axisRight( tScale ) );
+
+
+				chart
+				  .selectAll("whatever")
+				  .data(data)
+				  .enter()
+				  .append("rect")
+				  .attr("class", "prijem")
+				  .attr("x", function(d) { return xScale(d.datum); } )
+				  .attr("y", function(d) { return yScale(d.prijem) - (height - yScale(d.bilance)) ; } )
+				  .attr("width", xScale.bandwidth()/2 )
+				  .attr("height", function(d) { return (height - yScale(d.prijem)); } );
+
+				chart
+				  .selectAll("whatever")
+				  .data(data)
+				  .enter()
+				  .append("rect")
+				  .attr("class", "vydej")
+				  .attr("x", function(d) { return xScale(d.datum)+xScale.bandwidth()/2; } )
+				  .attr("y", function(d) { return yScale(d.prijem) - (height - yScale(d.bilance)) ; } )
+				  .attr("width", xScale.bandwidth()/2 )
+				  .attr("height", function(d) { return height - yScale(d.vydej); } );
+
+				chart
+				  .selectAll("whatever")
+				  .data(data)
+				  .enter()
+				  .append("text")
+				  .attr("class", "prijem")
+				  .attr("x", function(d) { return xScale(d.datum) - 10 ; } )
+				  .attr("y", function(d) { return yScale(d.prijem) - (height-yScale(d.bilance)) - 10 ; } )
+				  .text( function(d) { return d.prijem; } );
+
+				chart
+				  .selectAll("whatever")
+				  .data(data)
+				  .enter()
+				  .append("text")
+				  .attr("class", "vydej")
+				  .attr("x", function(d) { return xScale(d.datum) + 15 ; } )
+				  .attr("y", function(d) { return yScale(d.prijem) - (height-yScale(d.bilance)) - 10 ; } )
+				  .text( function(d) { return d.vydej; } );
+
+				temp
+				  .append("path")
+				  .attr("fill", "none")
+				  .attr("class", "teplota")
+				  .attr("d", d3.line()
+					.x(function(d) { return xScale(d.datum) } )
+					.y(function(d) { return tScale(d.teplota) } )( data )
+				  );
+
+				chart
+				  .selectAll("whatever")
+				  .data(data)
+				  .enter()
+				  .append("text")
+				  .attr("class", "teplota")
+				  .attr("x", function(d) { return xScale(d.datum) ; } )
+				  .attr("y", function(d) { return tScale(d.teplota); } )
+				  .text( function(d) { return d.teplota + " °C"; } );
+			}
+			window.onload = function(e) { drawChart(); };
+		</script>
+		<script language="javascript">
+		function getVents() {
+			var ventDivs = document.getElementsByClassName('vent');
+			var vents = [];
+			for ( var i = 0; i < ventDivs.length; i++ ) {
+				start = document.getElementById( 'start' + i ).value;
+				end   = document.getElementById( 'end'   + i ).value;
+				type  = document.getElementById( 'typ'  + i ).value;
+				vents[i] = { 'start': start, 'end': end, 'type': type, 'id': i };
+			}
+			return vents;
+		}
+
+		function getHours( timestamp1, timestamp2 ) {
+			if (timestamp1) {
+				start = new Date(timestamp1);
+			}
+			if (timestamp2) {
+				end = new Date(timestamp2);
+			}
+			if (timestamp1 && timestamp2 ) {
+				ms = end - start;
+				hours = Math.round( ms / (1000 * 60 * 6) ) /10 ;
+				return hours;
+			} else {
+				return null;
+			}
+		}
+
+		function calculate() {
+			var vents = getVents();
+			var upv_hours  = 0;
+			var niv_hours  = 0;
+			var hfno_hours = 0;
+
+			for (let span of document.getElementsByClassName('error')) {
+				span.innerHTML = "";
+			}
+
+			for (let vent of vents) {
+				var hours = 0;
+				if (vent['start'] && vent['end']) {
+					hours = getHours( vent['start'], vent['end'] );
+				}
+				if (hours) {
+					if (vent['type'] == "UPV") {
+						upv_hours += hours;
+					}
+					if (vent['type'] == "NIV") {
+						niv_hours += hours;
+					}
+					if (vent['type'] == "HFNO") {
+						hfno_hours += hours;
+					}
+				} else {
+					document.getElementById('error' + vent['id']).innerHTML = '!!!';
+				}
+			}
+			document.getElementById("UPV").innerHTML = upv_hours;
+			document.getElementById("NIV").innerHTML = niv_hours;
+			document.getElementById("HFNO").innerHTML = hfno_hours;
+			document.getElementById("celkem").innerHTML = Math.abs(upv_hours) + Math.abs(niv_hours) + Math.abs(hfno_hours);
+		}
+		function addVent() {
+			var vents = getVents();
+			var newId = vents.length;
+			const root = document.getElementById("root");
+
+			newVent = "\n";
+			newVent += "\t\t<div class='vent'>\n";
+			newVent += "\t\t\t<select name='typ" + newId + "' id='typ" + newId + "'>\n";
+			newVent += "\t\t\t\t<option value='UPV'>UPV</option>\n";
+			newVent += "\t\t\t\t<option value='NIV'>NIV</option>\n";
+			newVent += "\t\t\t\t<option value='HFNO'>HFNO</option>\n";
+			newVent += "\t\t\t</select>\n";
+			newVent += "\t\t\t<label for='start" + newId + "'>Zacatek ventilace:</label>\n";
+			newVent += "\t\t\t<input type='datetime-local' name='start" + newId + "' id='start" + newId + "'>\n";
+			newVent += "\t\t\t<label for='end" + newId + "'>Konec ventilace:</label>\n";
+			newVent += "\t\t\t<input type='datetime-local' name='end" + newId + "' id='end" + newId + "'>\n";
+			newVent += "\t\t\t<span id='error" + newId + "' class='error'></span>\n";
+			newVent += "\t\t</div>\n";
+
+			root.innerHTML = root.innerHTML + newVent;
+
+			for (let vent of vents) {
+				document.getElementById('start' + vent['id']).value = vent['start'];
+				document.getElementById('end'   + vent['id']).value = vent['end'];
+				document.getElementById('typ'   + vent['id']).value = vent['type'];
+			}
+		}
+	</script>
+	</head>
+	<body>
+		<div id='menu'>
+			<nav><a href='/kultivace'>Kultivace</a></nav>&nbsp;
+			<nav><a href='https://www.wikiskripta.eu/kalkulacka'>Lékařská kalkulačka</a></nav>&nbsp;
+			<nav><a href='/labor'>Labor</a></nav>&nbsp;
+			<nav><a href='/bilance'>Bilance</a></nav>&nbsp;
+			<nav><a href='/echo'>ECHO</a></nav>&nbsp;
+			<nav><a href='/ventilace'>Ventilace</a></nav>&nbsp;
+			<nav><a href='/sono'>SONO</a></nav>&nbsp;
+		</div>
+		{% block content %}
+		{% endblock %}
+	</body>
+</html>
