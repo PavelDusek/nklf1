@@ -1,19 +1,16 @@
-[tool.poetry]
+[project]
 name = "nklf1"
 version = "0.1.0"
-description = ""
+description = "A flask app to make routine tasks of a hospital neurologist easier."
 authors = ["PavelDusek <pavel.dusek@gmail.com>"]
 readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "flask>=3.1.3",
+    "flask-wtf>=1.2.2",
+    "gunicorn>=25.3.0",
+    "numpy>=2.4.4",
+    "python-dotenv>=1.2.2",
+    "wtforms>=3.2.1",
+]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-flask = "^3.0.2"
-flask-wtf = "^1.2.1"
-wtforms = "^3.1.2"
-numpy = "^1.26.4"
-python-dotenv = "^1.0.1"
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"

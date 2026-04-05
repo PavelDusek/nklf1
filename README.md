@@ -1,1 +1,2 @@
-# Flask app to make routine tasks in clinical medicine easier
+# nklf1
+A flask app to make routine tasks of a hospital neurologist easier.
