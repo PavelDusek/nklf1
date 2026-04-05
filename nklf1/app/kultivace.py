@@ -2,6 +2,8 @@
 import re
 
 def parseCitlivost(txt):
+    getNumbers = re.compile(r"(\d+)", re.UNICODE)
+
     positions = {}
     citlivost = {}
     rezistenc = {}
@@ -44,12 +46,12 @@ def doKultivace(txt):
 def parse(txt):
     results = []
 
-    getMaterial = re.compile("Biologický materiál (.*)$", re.UNICODE | re.MULTILINE)
-    getDatetime = re.compile("Datum a doba příjmu (.*)$", re.UNICODE | re.MULTILINE)
-    getKultivace = re.compile("Primokultura(.*?)(UVOLNIL|---+)", re.UNICODE | re.DOTALL)
-    getBlanks = re.compile(" +")
-    getCitlivost = re.compile("CITLIVOST.*$", re.UNICODE | re.DOTALL)
-    getNumbers = re.compile("(\d+)", re.UNICODE)
+    getMaterial = re.compile(r"Biologický materiál (.*)$", re.UNICODE | re.MULTILINE)
+    getDatetime = re.compile(r"Datum a doba příjmu (.*)$", re.UNICODE | re.MULTILINE)
+    getKultivace = re.compile(r"Primokultura(.*?)(UVOLNIL|---+)", re.UNICODE | re.DOTALL)
+    getBlanks = re.compile(r" +")
+    getCitlivost = re.compile(r"CITLIVOST.*$", re.UNICODE | re.DOTALL)
+    getNumbers = re.compile(r"(\d+)", re.UNICODE)
 
     material = getMaterial.findall(txt)
     datetime = getDatetime.findall(txt)

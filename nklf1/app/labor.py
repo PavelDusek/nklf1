@@ -22,7 +22,7 @@ def doLabor(txt):
 
 
 def laborStats(vals):
-    isNumber = re.compile("\d+,?\d*")
+    isNumber = re.compile(r"\d+,?\d*")
     vals = [
         float(v.replace(",", ".").replace("<", "").replace(">", "").strip())
         for v in vals

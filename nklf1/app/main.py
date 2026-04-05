@@ -4,15 +4,14 @@ import pathlib
 import os
 from dotenv import load_dotenv, find_dotenv
 
-from forms import KultivaceForm, BilanceForm, LaborForm, SonoForm
-from labor import doLabor
-from kultivace import doKultivace
-from bilance import doBilance
+from app.forms import KultivaceForm, BilanceForm, LaborForm, SonoForm
+from app.labor import doLabor
+from app.kultivace import doKultivace
+from app.bilance import doBilance
 
 load_dotenv(find_dotenv())
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
-
 directory = pathlib.Path(os.path.dirname(__file__))
 
 #######
@@ -35,6 +34,9 @@ def kultivace() -> None:
         vysledky = doKultivace(txt)
     return render_template("kultivace.html", form=form, vysledky=vysledky)
 
+@app.route("/risk", methods=["GET"])
+def risk() -> None:
+    return render_template("risk.html")
 
 @app.route("/bilance", methods=["POST", "GET"])
 def bilance() -> None:

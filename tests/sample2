@@ -1,0 +1,203 @@
+Pacient
+Prijmeni2 KrestniJmeno2 Titul
+*01. 01. 1001, žena 00 let
+ID: 987654321 
+Studie
+Datum vyšetření : 01. 01. 2001 01:01:01
+Datum zprávy : 01. 01. 2001
+Popis studie : Carotid
+Vascular Ultrasound Procedure Report
+Jazyk textu: Angličtina
+Typ pozorovatele: Přístroj
+Patient Characteristics :
+Subject Sex: Female
+Zjištění :
+Finding Site: Artery of Neck
+Laterality: Right
+Common Carotid Artery :
+Topographical Modifier: Proximal
+Vessel Branch: Right
+Peak Systolic Velocity: 66,6 centimeter/second
+Peak Systolic Velocity: 66,6 centimeter/second
+End Diastolic Velocity: 15,9 centimeter/second
+End Diastolic Velocity: 15,9 centimeter/second
+Internal Carotid Artery :
+Topographical Modifier: Proximal
+Vessel Branch: Right
+Vessel Lumen Diameter: 7,3 millimeter
+Vessel Lumen Diameter: 7,3 millimeter
+Vessel Residual Diameter: 3,9 millimeter
+Vessel Residual Diameter: 3,9 millimeter
+Peak Systolic Velocity: 57,1 centimeter/second
+Peak Systolic Velocity: 57,1 centimeter/second
+End Diastolic Velocity: 18,2 centimeter/second
+End Diastolic Velocity: 18,2 centimeter/second
+Lumen Area Stenosis: 71,5 percent
+Lumen Diameter Stenosis: 46,6 percent
+External Carotid Artery :
+Topographical Modifier: Proximal
+Vessel Branch: Right
+Peak Systolic Velocity: 41,7 centimeter/second
+Peak Systolic Velocity: 41,7 centimeter/second
+End Diastolic Velocity: 6,7 centimeter/second
+End Diastolic Velocity: 6,7 centimeter/second
+Subclavian Artery :
+Topographical Modifier: Proximal
+Vessel Branch: Right
+Peak Systolic Velocity: 87,8 centimeter/second
+Peak Systolic Velocity: 87,8 centimeter/second
+End Diastolic Velocity: 0,7 centimeter/second
+End Diastolic Velocity: 0,7 centimeter/second
+Vertebral Artery :
+Topographical Modifier: Proximal
+Vessel Branch: Right
+Diameter: 2,7 millimeter
+Diameter: 2,7 millimeter
+Peak Systolic Velocity: 23,7 centimeter/second
+Peak Systolic Velocity: 23,7 centimeter/second
+End Diastolic Velocity: 6,2 centimeter/second
+End Diastolic Velocity: 6,2 centimeter/second
+Internal Carotid Artery :
+Topographical Modifier: Mid-longitudinal
+Vessel Branch: Right
+Diameter: 4,6 millimeter
+Diameter: 4,6 millimeter
+Peak Systolic Velocity: 64,4 centimeter/second
+Peak Systolic Velocity: 64,4 centimeter/second
+End Diastolic Velocity: 23,7 centimeter/second
+End Diastolic Velocity: 23,7 centimeter/second
+Vertebral Artery :
+Topographical Modifier: Mid-longitudinal
+Vessel Branch: Right
+Diameter: 2,5 millimeter
+Diameter: 2,5 millimeter
+Peak Systolic Velocity: 21,3 centimeter/second
+Peak Systolic Velocity: 21,3 centimeter/second
+End Diastolic Velocity: 5,4 centimeter/second
+End Diastolic Velocity: 5,4 centimeter/second
+ICA/CCA Ratio Numerator :
+Topographical Modifier: Proximal
+Vessel Branch: Right
+Peak Systolic Velocity: 57,1 centimeter/second
+Peak Systolic Velocity: 57,1 centimeter/second
+End Diastolic Velocity: 18,2 centimeter/second
+End Diastolic Velocity: 18,2 centimeter/second
+ICA/CCA Ratio Denominator :
+Topographical Modifier: Proximal
+Vessel Branch: Right
+Peak Systolic Velocity: 66,6 centimeter/second
+Peak Systolic Velocity: 66,6 centimeter/second
+End Diastolic Velocity: 15,9 centimeter/second
+End Diastolic Velocity: 15,9 centimeter/second
+Vertebral Artery :
+Topographical Modifier: Distal
+Vessel Branch: Right
+Diameter: 2,4 millimeter
+Diameter: 2,4 millimeter
+Peak Systolic Velocity: 21,6 centimeter/second
+Peak Systolic Velocity: 21,6 centimeter/second
+End Diastolic Velocity: 7,8 centimeter/second
+End Diastolic Velocity: 7,8 centimeter/second
+Common Carotid Artery :
+Topographical Modifier: Far
+Vessel Branch: Posterior
+intima-media complex thickness: 0,793 millimeter
+intima-media complex thickness: 0,793 millimeter
+intima-media complex thickness: 0,696 millimeter
+intima-media complex thickness: 0,696 millimeter
+ICA/CCA velocity ratio: 0,86 no units
+ICA/CCA velocity ratio: 1,14 no units
+Zjištění :
+Finding Site: Artery of Neck
+Laterality: Left
+Common Carotid Artery :
+Topographical Modifier: Proximal
+Vessel Branch: Left
+Peak Systolic Velocity: 58,7 centimeter/second
+Peak Systolic Velocity: 58,7 centimeter/second
+End Diastolic Velocity: 13,4 centimeter/second
+End Diastolic Velocity: 13,4 centimeter/second
+Internal Carotid Artery :
+Topographical Modifier: Proximal
+Vessel Branch: Left
+Peak Systolic Velocity: 42,9 centimeter/second
+Peak Systolic Velocity: 42,9 centimeter/second
+End Diastolic Velocity: 12,5 centimeter/second
+End Diastolic Velocity: 12,5 centimeter/second
+External Carotid Artery :
+Topographical Modifier: Proximal
+Vessel Branch: Left
+Peak Systolic Velocity: 84,9 centimeter/second
+Peak Systolic Velocity: 84,9 centimeter/second
+End Diastolic Velocity: 12,5 centimeter/second
+End Diastolic Velocity: 12,5 centimeter/second
+Subclavian Artery :
+Topographical Modifier: Proximal
+Vessel Branch: Left
+Peak Systolic Velocity: 91,5 centimeter/second
+Peak Systolic Velocity: 91,5 centimeter/second
+End Diastolic Velocity: 0 centimeter/second
+End Diastolic Velocity: 0 centimeter/second
+Vertebral Artery :
+Topographical Modifier: Proximal
+Vessel Branch: Left
+Diameter: 4,1 millimeter
+Diameter: 3,3 millimeter
+Diameter: 4,1 millimeter
+Peak Systolic Velocity: 46,4 centimeter/second
+Peak Systolic Velocity: 67,5 centimeter/second
+Peak Systolic Velocity: 67,5 centimeter/second
+End Diastolic Velocity: 11,5 centimeter/second
+End Diastolic Velocity: 14,9 centimeter/second
+End Diastolic Velocity: 14,9 centimeter/second
+Internal Carotid Artery :
+Topographical Modifier: Mid-longitudinal
+Vessel Branch: Left
+Diameter: 5,4 millimeter
+Diameter: 5,4 millimeter
+Peak Systolic Velocity: 52,6 centimeter/second
+Peak Systolic Velocity: 52,6 centimeter/second
+End Diastolic Velocity: 19,7 centimeter/second
+End Diastolic Velocity: 19,7 centimeter/second
+Vertebral Artery :
+Topographical Modifier: Mid-longitudinal
+Vessel Branch: Left
+Diameter: 3,1 millimeter
+Diameter: 3,1 millimeter
+Peak Systolic Velocity: 42 centimeter/second
+Peak Systolic Velocity: 42 centimeter/second
+End Diastolic Velocity: 13,2 centimeter/second
+End Diastolic Velocity: 13,2 centimeter/second
+ICA/CCA Ratio Numerator :
+Topographical Modifier: Proximal
+Vessel Branch: Left
+Peak Systolic Velocity: 42,9 centimeter/second
+Peak Systolic Velocity: 42,9 centimeter/second
+End Diastolic Velocity: 12,5 centimeter/second
+End Diastolic Velocity: 12,5 centimeter/second
+ICA/CCA Ratio Denominator :
+Topographical Modifier: Proximal
+Vessel Branch: Left
+Peak Systolic Velocity: 58,7 centimeter/second
+Peak Systolic Velocity: 58,7 centimeter/second
+End Diastolic Velocity: 13,4 centimeter/second
+End Diastolic Velocity: 13,4 centimeter/second
+Vertebral Artery :
+Topographical Modifier: Distal
+Vessel Branch: Left
+Diameter: 4 millimeter
+Diameter: 4 millimeter
+Peak Systolic Velocity: 52 centimeter/second
+Peak Systolic Velocity: 52 centimeter/second
+End Diastolic Velocity: 14,7 centimeter/second
+End Diastolic Velocity: 14,7 centimeter/second
+Common Carotid Artery :
+Topographical Modifier: Far
+Vessel Branch: Posterior
+intima-media complex thickness: 0,865 millimeter
+intima-media complex thickness: 0,865 millimeter
+intima-media complex thickness: 0,729 millimeter
+intima-media complex thickness: 0,729 millimeter
+ICA/CCA velocity ratio: 0,73 no units
+ICA/CCA velocity ratio: 0,93 no units
+VENDOR AND VERSION DETAILS: TOSHIBA_V07.0
