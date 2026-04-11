@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+		<h2>Bilance tekutin</h2>
+		<form method=POST>
+			{{form.hidden_tag()}}
+			<p>Vložte dekurzy z Medea (přes Tisky-&gt;Archivní tisk dokumentace)</p>
+			<p>Nastavení archivního tisku dokumentace: <img src="{{url_for('static', filename='archivni_tisk_dokumentace.png')}}" alt="nastaveni archivniho tisku doumentace" /></p>
+			<p>Zkopírujte Ctrl+C text, vložte Ctrl-V</p>
+			{{form.text.label}}{{form.text(class='input')}}<br />
+			{{form.spli.label}}{{form.spli(class='spli')}}<br />
+			{{form.reg.label}}{{form.reg(class='reg')}}<br />
+			{{form.dat.label}}{{form.dat(class='dat')}}<br />
+			{{form.temp.label}}{{form.temp(class='temp')}}<br />
+			{{form.submit(class='submit')}}
+		</form>
+		<hr />
+		<button class='button' onClick="CopyToClipboard('output');">Kopírovat</button>
+		<div id='output'>
+			<table>
+				<tr><th>Datum</th><th>Příjem</th><th>Výdej</th><th>Celkem</th><th>Teplota</th></tr>
+			{% for vysledek in vysledky%}
+				<tr><td>{{vysledek.d}}</td><td>{{vysledek.p}}</td><td>{{vysledek.v}}</td><td>{{vysledek.c}}</td><td>{{vysledek.t}}</td></tr>
+			{% endfor %}
+				<tr><th>Celkem</th><th>{{summa.p}}</th><th>{{summa.v}}</th><th>{{summa.c}}</th></tr>
+			</table>
+		</div>
+		<hr /><br />
+		<svg width="1150" height="750">
+			<g id="chart" width="1000" height="600" transform="translate(50,50)" />
+			<g id="temperature" width="1000" height="600" transform="translate(50,0)" />
+		</svg>
+		<hr /><br />
+{% endblock %}
+		

@@ -1,0 +1,189 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>nklf1.cz (konverze výsledků, výpočty bilancí, kalkulačky)</title>
+				width: 80%;
+				height: 50%;
+				margin-left: 10%;
+			}
+			textarea.reg {
+				width: 50%;
+				margin-left: 10%;
+			}
+			input.submit {
+				margin-left: 10%;
+			}
+			#output {
+				margin-left: 10%;
+			}
+			button.button {
+				margin-left: 10%;
+			}
+			table {
+				border: 1px solid black;
+				border-collapse: collapse;
+				text-align: left;
+			}
+			th, td {
+				border: 1px solid black;
+				border-collapse: collapse;
+				padding: 10px;
+			}
+			.prijem {
+				fill: steelblue;
+			}
+			.vydej {
+								fill: gold;
+			}
+		</style>
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script language="javascript">
+			function CopyToClipboard(containerid) {
+				if (document.selection) {
+				    var range = document.body.createTextRange();
+				    range.moveToElementText(document.getElementById(containerid));
+				    range.select().createTextRange();
+				    document.execCommand("copy");
+
+				} else if (window.getSelection) {
+				    var range = document.createRange();
+				     range.selectNode(document.getElementById(containerid));
+				     window.getSelection().addRange(range);
+				     document.execCommand("copy");
+				}
+			}
+
+			function drawChart() {
+				const data = [
+					{% for vysledek in vysledky%}
+					{"datum": "{{vysledek.d}}", "prijem": {{vysledek.p}}, "vydej": {{vysledek.v}}, "bilance": {{vysledek.c}}, "teplota": {{vysledek.t}} },
+					{% endfor %}
+				];
+				var prijem  = data.map( function(d) { return d.prijem; } );
+				var vydej   = data.map( function(d) { return d.vydej ; } );
+				var bilance = data.map( function(d) { return d.bilance ; } );
+
+				var 	chart  = d3.select("#chart"),
+					width  = chart.attr("width"),
+					height = chart.attr("height");
+	
+				var 	xScale = d3.scaleBand().range([0, width]).padding(0.4),
+					yScale = d3.scaleLinear().range([height, 0]);
+
+				xScale.domain( data.map( function(d) { return d.datum; } ) );
+				yScale.domain( [0, d3.max( prijem.concat(vydej).concat(bilance) ) ]);
+
+				//x Axis
+				chart
+				  .append("g")
+				  .attr("class", "xaxis")
+				  .attr( "transform", "translate(0, " + height + ")" )
+				  .call( d3.axisBottom(xScale) )
+				  .selectAll("text")
+				  .style("text-anchor", "end")
+				  .attr("dx", "-.8em")
+				  .attr("dy", ".15em")
+				  .attr("transform", "rotate(-30)");
+	
+				//y Axis
+				chart
+				  .append("g")
+				  .attr("class", "yaxis")
+				  .call(d3.axisLeft(yScale).tickFormat( d => d ).ticks(15));
+
+				chart
+				  .selectAll("whatever")
+				  .data(data)
+				  .enter()
+				  .append("rect")
+				  .attr("class", "prijem")
+				  .attr("x", function(d) { return xScale(d.datum); } )
+				  .attr("y", function(d) { return yScale(d.bilance); } )
+				  .attr("width", xScale.bandwidth()/2 )
+				  .attr("height", function(d) { return height - yScale(d.prijem); } );
+
+				chart
+				  .selectAll("whatever")
+				  .data(data)
+				  .enter()
+				  .append("rect")
+				  .attr("class", "vydej")
+				  .attr("x", function(d) { return xScale(d.datum)+xScale.bandwidth()/2; } )
+				  .attr("y", function(d) { return yScale(d.bilance); } )
+				  .attr("width", xScale.bandwidth()/2 )
+				  .attr("height", function(d) { return height - yScale(d.vydej); } );
+
+			}
+
+			window.onload = function(e) { drawChart(); };
+		</script>
+		<script language="javascript">
+			function echo_CO() {
+				var PSV     = parseFloat($('#PSV'   ).val());
+				var EDV     = parseFloat($('#EDV'   ).val());
+				var PI      = parseFloat($('#PI'    ).val());
+				var time    = parseFloat($('#time'  ).val());
+				var HR      = parseFloat($('#HR'    ).val());
+				var LVOT    = parseFloat($('#LVOT'  ).val());
+				var height  = parseFloat($('#height').val());
+				var weight  = parseFloat($('#weight').val());
+				var area    = 3.14 * Math.pow( (LVOT/2), 2 );
+				var Vmean   = (Math.abs(PSV) - Math.abs(EDV))/PI;
+				var systole = 60/time;
+				var VTI     = Vmean * systole;
+				var stroke  = VTI * area;
+				var CO      = stroke * HR;
+				var body    = Math.pow(weight,0.425)*Math.pow(height,0.725)*0.007184;
+				var CI      = CO/body;
+
+				var output  = "VTI: " + VTI.toPrecision(2) + " cm, pulzovy objem: " + stroke.toPrecision(3) + " ml, srdecni vydej: " + CO.toPrecision(4) + " ml/min., srdecni index: " + CI.toPrecision(4) + " ml/min/m2.";
+				$('#echo_output_CI').html(output);				
+			}
+
+			function echo_PPV() {
+				var P1 = parseFloat($('#P1').val());
+				var P2 = parseFloat($('#P2').val());
+				var PPV = (Math.max(P1, P2) - Math.min(P1, P2) )/ (0.5*(P1 + P2));
+				var PPV_perc = 100 * PPV.toPrecision(3);
+				var output = "PPV: " + PPV_perc + " %.";
+				$('#echo_output_PPV').html(output);				
+			}
+			function echo_IVC() {
+				var IVC1 = parseFloat($('#IVC1').val());
+				var IVC2 = parseFloat($('#IVC2').val());
+				var collapsibility = (Math.max(IVC1, IVC2) - Math.min(IVC1, IVC2)) / Math.max(IVC1, IVC2)
+				var distensibility = (Math.max(IVC1, IVC2) - Math.min(IVC1, IVC2)) / Math.min(IVC1, IVC2)
+				var dist_perc = distensibility.toPrecision(3) * 100;
+				var coll_perc = collapsibility.toPrecision(3) * 100;
+				var output = "Collapsiblity index: " + dist_perc + " %. Distensibility index: " + coll_perc + " %.";
+				$('#echo_output_IVC').html(output);				
+			}
+
+			$('#PSV'   ).change( echo_CO() );
+			$('#EDV'   ).change( echo_CO() );
+			$('#PI'    ).change( echo_CO() );
+			$('#time'  ).change( echo_CO() );
+			$('#HR'    ).change( echo_CO() );
+			$('#LVOT'  ).change( echo_CO() );
+			$('#height').change( echo_CO() );
+			$('#weight').change( echo_CO() );
+			$('#P1').change(     echo_PPV());
+			$('#P2').change(     echo_PPV());
+			$('#IVC1').change(   echo_IVC());
+			$('#IVC2').change(   echo_IVC());
+		</script>
+	</head>
+	<body>
+		<div id='menu'>
+			<nav><a href='/kultivace'>Kultivace</a></nav>&nbsp;
+			<nav><a href='https://www.wikiskripta.eu/kalkulacka'>Lékařská kalkulačka</a></nav>&nbsp;
+			<nav><a href='/labor'>Labor</a></nav>&nbsp;
+			<nav><a href='/bilance'>Bilance</a></nav>&nbsp;
+			<nav><a href='/echo'>ECHO</a></nav>&nbsp;
+			<nav><a href='https://video.nklf1.cz'>Videa</a></nav>
+		</div>
+		{% block content %}
+		{% endblock %}
+	</body>
+</html>

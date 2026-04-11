@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+		<h2>Výsledky kultivací</h2>
+		<form method=POST>
+			{{form.hidden_tag()}}
+			{{form.text(class='input')}}
+			<br />{{form.submit(class='submit')}}
+		</form>
+		<hr />
+		<button class='button' onClick="CopyToClipboard('output');">Kopírovat</button>
+		<div id='output'>
+		{% for vysledek in vysledky%}
+			<p>{{vysledek}}</p>
+		{% endfor %}
+		</div>
+{% endblock %}
