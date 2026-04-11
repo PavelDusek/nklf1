@@ -8,7 +8,7 @@ import numpy as np
 
 
 def doLabor(txt):
-    parametry = re.split("(?<=\D), ", txt)
+    parametry = re.split(r"(?<=\D), ", txt)
     results = []
     for parametr in parametry:
         nazev, hodnotysjednotkou = parametr.split(":")

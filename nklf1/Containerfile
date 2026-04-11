@@ -1,0 +1,15 @@
+FROM python:latest
+EXPOSE 8880
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+RUN mkdir /app/app/
+RUN mkdir /app/app/templates/
+COPY main.py /app/
+COPY app.wsgi /app/
+COPY app/* /app/app/
+COPY app/templates/* /app/app/templates/
+COPY .env /app/app/
+CMD ["python", "main.py"]
+#CMD ["flask", "run", "--host", "0.0.0.0:8880"]
+#CMD ["gunicorn", "--bind", "0.0.0.0:8880", "app::create_app()"]

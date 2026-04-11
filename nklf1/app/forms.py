@@ -17,17 +17,17 @@ class KultivaceForm(FlaskForm):
 class BilanceForm(FlaskForm):
     # reg = TextAreaField(u"Regulární výraz pro vyhledání bilancí:", default=u"[Bb]ilance\s*tekutin\s*\(?P\/V\)?:?\s*(\d+)\s*\/\s*(\d+)")
     spli = TextAreaField(
-        "Regulární výraz pro hranici dnů:", default="------  Dokumentace ze"
+        "Regulární výraz pro hranici dnů:", default=r"------  Dokumentace ze"
     )
     reg = TextAreaField(
         "Regulární výraz pro vyhledání bilancí:",
-        default="[Bb]ilance\s*\w*\s*\(?P\/V\)?:?\s*\+?(\d+)\s*\/\s*-?(\d+)",
+        default=r"[Bb]ilance\s*\w*\s*\(?P\/V\)?:?\s*\+?(\d+)\s*\/\s*-?(\d+)",
     )
     temp = TextAreaField(
-        "Regulární výraz pro teplotu:", default="TT:?\s*(\d+)[\.,]?(\d+)?\s*(°C|st)"
+        "Regulární výraz pro teplotu:", default=r"TT:?\s*(\d+)[\.,]?(\d+)?\s*(°C|st)"
     )
     dat = TextAreaField(
-        "Regulární výraz pro datum:", default="dne (\d+\.\d+\.\d+) ---------:"
+        "Regulární výraz pro datum:", default=r"dne (\d+\.\d+\.\d+) ---------:"
     )
     text = TextAreaField(
         "Text dekurzů:",

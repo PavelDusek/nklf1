@@ -8,6 +8,10 @@ from app.forms import KultivaceForm, BilanceForm, LaborForm, SonoForm
 from app.labor import doLabor
 from app.kultivace import doKultivace
 from app.bilance import doBilance
+#from forms import KultivaceForm, BilanceForm, LaborForm, SonoForm
+#from labor import doLabor
+#from kultivace import doKultivace
+#from bilance import doBilance
 
 load_dotenv(find_dotenv())
 app = Flask(__name__)
@@ -88,8 +92,8 @@ def sono() -> None:
 
 
 if __name__ == "__main__":
-     app.run(debug=True)
+    # app.run(debug=True)
     # app.run(debug=False)
     # app.run(host='0.0.0.0', port='80', debug=True)
-    # app.run(host='0.0.0.0', port='8080', debug=True)
+    app.run(host='0.0.0.0', port='8880', debug=True)
     #app.run(host="0.0.0.0", port="80", debug=False)
