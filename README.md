@@ -11,5 +11,5 @@ uv run python3 main.py
 ## Run as podman container for production
 ```
 sudo podman build . -t nklf1
-sudo podman run -p 8888:80 --env-file .env nklf1
+sudo podman run -p 8880:8880 --env-file .env -d nklf1
 ```
