@@ -2,7 +2,9 @@
 name = "nklf1"
 version = "0.1.0"
 description = "A flask app to make routine tasks of a hospital neurologist easier."
-authors = ["PavelDusek <pavel.dusek@gmail.com>"]
+authors = [
+    {"name" = "PavelDusek", "email" = "pavel.dusek@gmail.com"}
+]
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
@@ -14,3 +16,6 @@ dependencies = [
     "wtforms>=3.2.1",
 ]
 
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
