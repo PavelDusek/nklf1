@@ -51,6 +51,39 @@ class LaborForm(FlaskForm):
 
 
 class SonoForm(FlaskForm):
+
+    tcd = BooleanField("TCD", default=True)
+
+    machine = SelectField(
+            "přístroj",
+            choices = [
+                ("Canon Aplio a", "Canon Aplio a"),
+                ("Canon Aplio go", "Canon Aplio go"),
+                ("Canon Aplio i800", "Canon Aplio i800"),
+                ("Toshiba 4D Aplio 300", "Toshiba 4D Aplio 300"),
+            ],
+    )
+
+    kvalita = SelectField(
+            "celková kvalita obrazu",
+            choices = [
+                ("excelentní", "excelentní"), #1
+                ("dobrá", "dobrá"), #2
+                ("adekvátní", "adekvátní"), #3
+                ("špatná", "špatná"), #4
+                ("nediagnostická", "nediagnostická"), #5
+            ],
+    )
+
+    vyteznost = SelectField(
+            "diagnostická výtěžnost",
+            choices = [
+                ("excelentní", "excelentní"), #1
+                ("dobrá", "dobrá"), #2
+                ("nedostatečná", "nedostatečná"), #3
+            ],
+    )
+
     year = IntegerField("rok narozeni")
     vji = BooleanField("VJI kompresibilní", default=True)
     thyroid = BooleanField("Štítnice homogenní", default=True)
@@ -71,7 +104,11 @@ class SonoForm(FlaskForm):
         ],
     )
     acc_sn_plaq_surf = SelectField(
-        "pláty vlevo povrch", choices=[("hladký", "hladký"), ("nerovný", "nerovný")]
+        "pláty vlevo povrch",
+        choices=[
+            ("hladký", "hladký"),
+            ("nerovný", "nerovný")
+        ],
     )
 
     aci_sn_laminar = BooleanField("ACI sin laminar", default=True)
@@ -102,7 +139,7 @@ class SonoForm(FlaskForm):
     aci_sn_sub_edv = IntegerField("ACI sin sub EDV")
     aci_sn_sub_pi = FloatField("ACI sin sub PI")
     aci_sn_sub_ri = FloatField("ACI sin sub RI")
-    aci_sn_sub_mm = FloatField("ACI sin sub mm")
+    aci_sn_sub_mm = IntegerField("ACI sin sub mm")
 
     ace_sn_psv = IntegerField("ACE sin PSV")
     ace_sn_vm  = IntegerField("ACE sin Vm")
@@ -157,7 +194,11 @@ class SonoForm(FlaskForm):
         ],
     )
     acc_dx_plaq_surf = SelectField(
-        "pláty vpravo povrch", choices=[("hladký", "hladký"), ("nerovný", "nerovný")]
+        "pláty vpravo povrch",
+        choices=[
+            ("hladký", "hladký"),
+            ("nerovný", "nerovný")
+        ],
     )
 
     aci_dx_laminar = BooleanField("ACI sin laminar", default=True)
@@ -188,7 +229,7 @@ class SonoForm(FlaskForm):
     aci_dx_sub_edv = IntegerField("ACI dx sub EDV")
     aci_dx_sub_pi = FloatField("ACI dx sub PI")
     aci_dx_sub_ri = FloatField("ACI dx sub RI")
-    aci_dx_sub_mm = FloatField("ACI dx sub mm")
+    aci_dx_sub_mm = IntegerField("ACI dx sub mm")
 
     ace_dx_psv = IntegerField("ACE dx PSV")
     ace_dx_vm  = IntegerField("ACE dx Vm")
@@ -231,99 +272,145 @@ class SonoForm(FlaskForm):
     v3_dx_mm = FloatField("V3 dx mm")
 
     # Ophthalmic
-    ophth_sn_mm = IntegerField("Ophthalmic sin hloubka")
     ophth_sn_psv = IntegerField("Ophthalmic sin PSV")
     ophth_sn_vm = IntegerField("Ophthalmic sin Vm")
     ophth_sn_edv = IntegerField("Ophthalmic sin EDV")
     ophth_sn_pi = FloatField("Ophthalmic sin PI")
     ophth_sn_ri = FloatField("Ophthalmic sin RI")
+    ophth_sn_mm = IntegerField("Ophthalmic sin hloubka")
 
-    ophth_dx_mm = IntegerField("Ophthalmic dx hloubka")
     ophth_dx_psv = IntegerField("Ophthalmic dx PSV")
     ophth_dx_vm = IntegerField("Ophthalmic dx Vm")
     ophth_dx_edv = IntegerField("Ophthalmic dx EDV")
     ophth_dx_pi = FloatField("Ophthalmic dx PI")
     ophth_dx_ri = FloatField("Ophthalmic dx RI")
+    ophth_dx_mm = IntegerField("Ophthalmic dx hloubka")
 
     # TCDS transtemporalni
     tm_sn_okno = BooleanField("Temporální okno vlevo", default=True)
-    ACM_sn_mm = IntegerField("ACM sin hloubka")
+
     ACM_sn_psv = IntegerField("ACM sin PSV")
     ACM_sn_vm = IntegerField("ACM sin Vm")
     ACM_sn_edv = IntegerField("ACM sin EDV")
     ACM_sn_pi = FloatField("ACM sin PI")
     ACM_sn_ri = FloatField("ACM sin RI")
+    ACM_sn_mm = IntegerField("ACM sin hloubka")
 
-    ACA_sn_mm = IntegerField("ACA sin hloubka")
+    ACM2_sn_psv = IntegerField("ACM 2 sin PSV")
+    ACM2_sn_vm = IntegerField("ACM 2 sin Vm")
+    ACM2_sn_edv = IntegerField("ACM 2 sin EDV")
+    ACM2_sn_pi = FloatField("ACM 2 sin PI")
+    ACM2_sn_ri = FloatField("ACM 2 sin RI")
+    ACM2_sn_mm = IntegerField("ACM 2 sin hloubka")
+
+    ACM3_sn_psv = IntegerField("ACM 3 sin PSV")
+    ACM3_sn_vm = IntegerField("ACM 3 sin Vm")
+    ACM3_sn_edv = IntegerField("ACM 3 sin EDV")
+    ACM3_sn_pi = FloatField("ACM 3 sin PI")
+    ACM3_sn_ri = FloatField("ACM 3 sin RI")
+    ACM3_sn_mm = IntegerField("ACM 3 sin hloubka")
+
     ACA_sn_psv = IntegerField("ACA sin PSV")
     ACA_sn_vm = IntegerField("ACA sin Vm")
     ACA_sn_edv = IntegerField("ACA sin EDV")
     ACA_sn_pi = FloatField("ACA sin PI")
     ACA_sn_ri = FloatField("ACA sin RI")
+    ACA_sn_mm = IntegerField("ACA sin hloubka")
 
-    P1_sn_mm = IntegerField("P1 sin hloubka")
-    P1_sn_psv = IntegerField("P1 sin PSV")
-    P1_sn_vm = IntegerField("P1 sin Vm")
-    P1_sn_edv = IntegerField("P1 sin EDV")
-    P1_sn_pi = FloatField("P1 sin PI")
-    P1_sn_ri = FloatField("P1 sin RI")
-    P2_sn_mm = IntegerField("P2 sin hloubka")
+    P1pre_sn_psv = IntegerField("P1 pre sin PSV")
+    P1pre_sn_vm = IntegerField("P1 pre sin Vm")
+    P1pre_sn_edv = IntegerField("P1 pre sin EDV")
+    P1pre_sn_pi = FloatField("P1 pre sin PI")
+    P1pre_sn_ri = FloatField("P1 pre sin RI")
+    P1pre_sn_mm = IntegerField("P1 pre sin hloubka")
+
+    P1post_sn_psv = IntegerField("P1 post sin PSV")
+    P1post_sn_vm = IntegerField("P1 post sin Vm")
+    P1post_sn_edv = IntegerField("P1 post sin EDV")
+    P1post_sn_pi = FloatField("P1 post sin PI")
+    P1post_sn_ri = FloatField("P1 post sin RI")
+    P1post_sn_mm = IntegerField("P1 post sin hloubka")
+
     P2_sn_psv = IntegerField("P2 sin PSV")
     P2_sn_edv = IntegerField("P2 sin EDV")
     P2_sn_vm = IntegerField("P2 sin Vm")
     P2_sn_pi = FloatField("P2 sin PI")
     P2_sn_ri = FloatField("P2 sin RI")
+    P2_sn_mm = IntegerField("P2 sin hloubka")
 
     tm_dx_okno = BooleanField("Temporální okno vpravo", default=True)
-    ACM_dx_mm = IntegerField("ACM dx hloubka")
+
     ACM_dx_psv = IntegerField("ACM dx PSV")
     ACM_dx_vm = IntegerField("ACM dx Vm")
     ACM_dx_edv = IntegerField("ACM dx EDV")
     ACM_dx_pi = FloatField("ACM dx PI")
     ACM_dx_ri = FloatField("ACM dx RI")
+    ACM_dx_mm = IntegerField("ACM dx hloubka")
 
-    ACA_dx_mm = IntegerField("ACA dx hloubka")
+    ACM2_dx_psv = IntegerField("ACM 2 dx PSV")
+    ACM2_dx_vm = IntegerField("ACM 2 dx Vm")
+    ACM2_dx_edv = IntegerField("ACM 2 dx EDV")
+    ACM2_dx_pi = FloatField("ACM 2 dx PI")
+    ACM2_dx_ri = FloatField("ACM 2 dx RI")
+    ACM2_dx_mm = IntegerField("ACM 2 dx hloubka")
+
+    ACM3_dx_psv = IntegerField("ACM 3 dx PSV")
+    ACM3_dx_vm = IntegerField("ACM 3 dx Vm")
+    ACM3_dx_edv = IntegerField("ACM 3 dx EDV")
+    ACM3_dx_pi = FloatField("ACM 3 dx PI")
+    ACM3_dx_ri = FloatField("ACM 3 dx RI")
+    ACM3_dx_mm = IntegerField("ACM 3 dx hloubka")
+
     ACA_dx_psv = IntegerField("ACA dx PSV")
     ACA_dx_vm = IntegerField("ACA dx Vm")
     ACA_dx_edv = IntegerField("ACA dx EDV")
     ACA_dx_pi = FloatField("ACA dx PI")
     ACA_dx_ri = FloatField("ACA dx RI")
+    ACA_dx_mm = IntegerField("ACA dx hloubka")
 
-    P1_dx_mm = IntegerField("P1 dx hloubka")
-    P1_dx_psv = IntegerField("P1 dx PSV")
-    P1_dx_vm = IntegerField("P1 dx Vm")
-    P1_dx_edv = IntegerField("P1 dx EDV")
-    P1_dx_pi = FloatField("P1 dx PI")
-    P1_dx_ri = FloatField("P1 dx RI")
-    P2_dx_mm = IntegerField("P2 dx hloubka")
+    P1pre_dx_psv = IntegerField("P1 pre dx PSV")
+    P1pre_dx_vm = IntegerField("P1 pre dx Vm")
+    P1pre_dx_edv = IntegerField("P1 pre dx EDV")
+    P1pre_dx_pi = FloatField("P1 pre dx PI")
+    P1pre_dx_ri = FloatField("P1 pre dx RI")
+    P1pre_dx_mm = IntegerField("P1 pre dx hloubka")
+
+    P1post_dx_psv = IntegerField("P1 post dx PSV")
+    P1post_dx_vm = IntegerField("P1 post dx Vm")
+    P1post_dx_edv = IntegerField("P1 post dx EDV")
+    P1post_dx_pi = FloatField("P1 post dx PI")
+    P1post_dx_ri = FloatField("P1 post dx RI")
+    P1post_dx_mm = IntegerField("P1 post dx hloubka")
+
     P2_dx_psv = IntegerField("P2 dx PSV")
     P2_dx_vm = IntegerField("P2 dx Vm")
     P2_dx_edv = IntegerField("P2 dx EDV")
     P2_dx_pi = FloatField("P2 dx PI")
     P2_dx_ri = FloatField("P2 dx RI")
+    P2_dx_mm = IntegerField("P2 dx hloubka")
 
     # TCDS transforaminalni
-    V4_sn_mm = IntegerField("V4 sin hloubka")
     V4_sn_psv = IntegerField("V4 sin PSV")
     V4_sn_vm = IntegerField("V4 sin Vm")
     V4_sn_edv = IntegerField("V4 sin EDV")
     V4_sn_pi = FloatField("V4 sin PI")
     V4_sn_ri = FloatField("V4 sin RI")
+    V4_sn_mm = IntegerField("V4 sin hloubka")
 
-    V4_dx_mm = IntegerField("V4 dx hloubka")
     V4_dx_psv = IntegerField("V4 dx PSV")
     V4_dx_vm = IntegerField("V4 dx Vm")
     V4_dx_edv = IntegerField("V4 dx EDV")
     V4_dx_pi = FloatField("V4 dx PI")
     V4_dx_ri = FloatField("V4 dx RI")
+    V4_dx_mm = IntegerField("V4 dx hloubka")
 
     AB_junkce = IntegerField("AB junkce")
-    AB_mm = IntegerField("AB hloubka")
     AB_psv = IntegerField("AB PSV")
     AB_vm = IntegerField("AB Vm")
     AB_edv = IntegerField("AB EDV")
     AB_pi = FloatField("AB PI")
     AB_ri = FloatField("AB RI")
+    AB_mm = IntegerField("AB hloubka")
 
     ventricle3 = FloatField("3.komora")
 

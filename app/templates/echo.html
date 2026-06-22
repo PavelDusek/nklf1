@@ -1,32 +1,65 @@
-{% extends "base.html" %}
-{% block content %}
-	<h2>ECHO</h2>
-	<h3>LVOT VTI</h3>
-		<fieldset><label for="PSV"   >PSV   </label><input type="number" id="PSV"    value = "1.0"  /></fieldset><br/>
-		<fieldset><label for="EDV"   >EDV   </label><input type="number" id="EDV"    value = "1.0"  /></fieldset><br/>
-		<fieldset><label for="PI"    >PI    </label><input type="number" id="PI"     value = "1.0"  /></fieldset><br/>
-		<fieldset><label for="time"  >time  </label><input type="number" id="time"   value = "1.0"  /></fieldset><br/>
-		<fieldset><label for="HR"    >HR    </label><input type="number" id="HR"     value = "1.0"  /></fieldset><br/>
-		<fieldset><label for="LVOT"  >LVOT  </label><input type="number" id="LVOT"   value = "1.0"  /></fieldset><br/>
-		<fieldset><label for="height">height</label><input type="number" id="height" value = "1.0"  /></fieldset><br/>
-		<fieldset><label for="weight">weight</label><input type="number" id="weight" value = "1.0"  /></fieldset><br/>
-		<button type="button" onClick="echo_CO();">Spocitej</button>
-		<div id='echo_output_CI'></div>
-		<p>Normal VTI &gt; 20 cm, normal cardiac index 2.6–4.2 l/min/m<sup>2</sup>, if it falls acutely below 2.2 l/min./m<sup>2</sup>, the patient may be in cardiogenic shock.</p>
-		<hr />
-	<h3>LVOT Vmax respiration variability (Pulse pressure variation, PPV)</h3>
-		<fieldset><label for="P1">P1</label><input type="number" id="P1" value = "1.0" /></fieldset><br/>
-		<fieldset><label for="P2">P2</label><input type="number" id="P2" value = "1.0" /></fieldset><br/>
-		<div id='echo_output_PPV'></div>
-		<button type="button" onClick="echo_PPV();">Spocitej</button>
-		<p>Fluid responsiveness: PPV &gt; 12 %. Sinusovy rytmus. UPV bez spotanni dechove aktivity. VT min. 8 ml/kg, driving pressure nad 20 cm H2O, normalni plicni poddajnost, absence IAH. Falesne pozitivni u pulsus paradoxus a dysfunkce RV.</p>
-		<hr />
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	table, td, th {
+		border: solid 1px black;
+		border-collapse: collapse;
+	}
+</style>
+</head>
+<body>
+<form method=POST>
+<p>
+{{form.echo.label}}{{form.echo()}}<br />
+{{form.echo_dilatace.label}}{{form.echo_dilatace()}}
+{{form.echo_lav.label}}{{form.echo_lav()}}
+{{form.echo_lavi.label}}{{form.echo_lavi()}}
 
-	<h3>Collapsibility/distensibility index IVC</h3>
-		<fieldset><label for="IVC1">IVC1</label><input type="number" id="IVC1" value = "1.0" /></fieldset><br/>
-		<fieldset><label for="IVC2">IVC2</label><input type="number" id="IVC2" value = "1.0" /></fieldset><br/>
-		<div id='echo_output_IVC'></div>
-		<button type="button" onClick="echo_IVC();">Spocitej</button>
-		<p>Fluid responsiveness: collapsiblity (spont) &gt; (12)–20–(40) %, distensibillity (UPV) &gt; 12 %.</p>
-		<hr />
-{% endblock %}
+{{form.echo_lv_sys.label}}{{form.echo_lv_sys()}}
+{{form.echo_ef.label}}{{form.echo_ef()}}
+{{form.echo_fs.label}}{{form.echo_fs()}}
+{{form.echo_mapse.label}}{{form.echo_mapse()}}
+
+{{form.echo_lv_dia.label}}{{form.echo_lv_dia()}}
+{{form.echo_ea.label}}{{form.echo_ea()}}
+
+{{form.echo_rv_sys.label}}{{form.echo_rv_sys()}}
+{{form.echo_tapse.label}}{{form.echo_tapse()}}
+
+{{form.echo_co_interpretace.label}}{{form.echo_co_interpretace()}}
+{{form.echo_lvot_vti.label}}{{form.echo_lvot_vti()}}
+{{form.echo_co.label}}{{form.echo_co()}}
+{{form.echo_ci.label}}{{form.echo_ci()}}
+</p>
+<ol>
+	<li>Normal diastolic function (E &gt; A)</li>
+	<li>Impaired relaxation (E:A reversal i.e., E is &lt; A)</li>
+	<li>Pseudonormal (E:A ratio appears normal)</li>
+	<li>Restrictive filling (E:A ratio often &lt; 2)</li>
+</ol>
+<hr />
+<p>{{form.submit()}}</p>
+</form>
+
+<hr/>
+<hr/>
+<p>
+Orientační transtorakální echokardiografie bed-side:<br />
+Bez patrné regionální poruchy kinetiky. Srdeční oddíly 
+{% if form.echo_dilatace %}
+dilatované
+{% else %}
+bez dilatace 
+{% endif %}
+(LAV {{form.echo_lav.data}} ml, LAVi {{form.echo_lavi.data}} ml/m2).<br />
+Systolická funkce levé komory {{form.echo_lv_sys.data}} (EF LK {{form.echo_ef.data}} %, fractional shortening {{form.echo_fs.data}} %, MAPSE {{form.echo_mapse.data}} mm).<br />
+Diastolická funkce levé komory {{form.echo_lv_dia.data}} (E/A {{form.echo_ea.data}}).<br />
+Srdeční výdej {{form.c_interpretace}} (LVOT VTI {{form.echo_lvot_vti.data}}, CO {{form.echo_co.data}} l/min., CI {{form.echo_ci.data}} l/min./m2).<br />
+Aortální, mitrální a trikuspidální chlopeň bez významné vady.<br />
+Tenze v plicnici nezvýšená.<br />
+Dolní dutá žíla nedilatovaná kolabujicí s dechovým cyklem.<br />
+Perikard bez separace.<br />
+</p>
+	</body>
+</html>

@@ -10,6 +10,10 @@
 </head>
 <body>
 <form method=POST>
+<p>{{form.tcd.label}}{{form.tcd()}}</p>
+<p>{{form.machine.label}}{{form.machine()}}</p>
+<p>{{form.kvalita.label}}{{form.kvalita()}}</p>
+<p>{{form.vyteznost.label}}{{form.vyteznost()}}</p>
 <p>{{form.year.label}}{{form.year()}}</p>
 <p>
 {{form.vji()}}{{form.vji.label}}<br />
@@ -201,40 +205,40 @@
 <h1>Ophthlamica</h1>
 <table>
 <tr>
-	<td>{{form.ophth_sn_mm.label}} {{form.ophth_sn_mm()}}</td>
 	<td>{{form.ophth_sn_psv.label}}{{form.ophth_sn_psv()}}</td>
 	<td>{{form.ophth_sn_vm.label}} {{form.ophth_sn_vm()}}</td>
 	<td>{{form.ophth_sn_edv.label}}{{form.ophth_sn_edv()}}</td>
 	<td>{{form.ophth_sn_pi.label}} {{form.ophth_sn_pi()}}</td>
 	<td>{{form.ophth_sn_ri.label}} {{form.ophth_sn_ri()}}</td>
+	<td>{{form.ophth_sn_mm.label}} {{form.ophth_sn_mm()}}</td>
 </tr>
 <tr>
-	<td>{{form.ophth_dx_mm.label}} {{form.ophth_dx_mm()}}</td>
 	<td>{{form.ophth_dx_psv.label}}{{form.ophth_dx_psv()}}</td>
 	<td>{{form.ophth_dx_vm.label}} {{form.ophth_dx_vm()}}</td>
 	<td>{{form.ophth_dx_edv.label}}{{form.ophth_dx_edv()}}</td>
 	<td>{{form.ophth_dx_pi.label}} {{form.ophth_dx_pi()}}</td>
 	<td>{{form.ophth_dx_ri.label}} {{form.ophth_dx_ri()}}</td>
+	<td>{{form.ophth_dx_mm.label}} {{form.ophth_dx_mm()}}</td>
 </tr>
 </table>
 
 <h1>Submandibular</h1>
 <table>
 <tr>
-	<td>{{form.aci_sn_sub_mm.label}} {{form.aci_sn_sub_mm()}}</td>
 	<td>{{form.aci_sn_sub_psv.label}}{{form.aci_sn_sub_psv()}}</td>
 	<td>{{form.aci_sn_sub_vm.label}} {{form.aci_sn_sub_vm()}}</td>
 	<td>{{form.aci_sn_sub_edv.label}}{{form.aci_sn_sub_edv()}}</td>
 	<td>{{form.aci_sn_sub_pi.label}} {{form.aci_sn_sub_pi()}}</td>
 	<td>{{form.aci_sn_sub_ri.label}} {{form.aci_sn_sub_ri()}}</td>
+	<td>{{form.aci_sn_sub_mm.label}} {{form.aci_sn_sub_mm()}}</td>
 </tr>
 <tr>
-	<td>{{form.aci_dx_sub_mm.label}} {{form.aci_dx_sub_mm()}}</td>
 	<td>{{form.aci_dx_sub_psv.label}}{{form.aci_dx_sub_psv()}}</td>
 	<td>{{form.aci_dx_sub_vm.label}} {{form.aci_dx_sub_vm()}}</td>
 	<td>{{form.aci_dx_sub_edv.label}}{{form.aci_dx_sub_edv()}}</td>
 	<td>{{form.aci_dx_sub_pi.label}} {{form.aci_dx_sub_pi()}}</td>
 	<td>{{form.aci_dx_sub_ri.label}} {{form.aci_dx_sub_ri()}}</td>
+	<td>{{form.aci_dx_sub_mm.label}} {{form.aci_dx_sub_mm()}}</td>
 </tr>
 </table>
 
@@ -242,36 +246,60 @@
 {{form.tm_sn_okno.label}}{{form.tm_sn_okno()}}<br />
 <table>
 <tr>
-	<td>{{form.ACM_sn_mm.label}} {{form.ACM_sn_mm()}}</td>
 	<td>{{form.ACM_sn_psv.label}}{{form.ACM_sn_psv()}}</td>
 	<td>{{form.ACM_sn_vm.label}} {{form.ACM_sn_vm()}}</td>
 	<td>{{form.ACM_sn_edv.label}}{{form.ACM_sn_edv()}}</td>
 	<td>{{form.ACM_sn_pi.label}} {{form.ACM_sn_pi()}}</td>
 	<td>{{form.ACM_sn_ri.label}} {{form.ACM_sn_ri()}}</td>
+	<td>{{form.ACM_sn_mm.label}} {{form.ACM_sn_mm()}}</td>
 </tr>
 <tr>
-	<td>{{form.ACA_sn_mm.label}} {{form.ACA_sn_mm()}}</td>
+	<td>{{form.ACM2_sn_psv.label}}{{form.ACM2_sn_psv()}}</td>
+	<td>{{form.ACM2_sn_vm.label}} {{form.ACM2_sn_vm()}}</td>
+	<td>{{form.ACM2_sn_edv.label}}{{form.ACM2_sn_edv()}}</td>
+	<td>{{form.ACM2_sn_pi.label}} {{form.ACM2_sn_pi()}}</td>
+	<td>{{form.ACM2_sn_ri.label}} {{form.ACM2_sn_ri()}}</td>
+	<td>{{form.ACM2_sn_mm.label}} {{form.ACM2_sn_mm()}}</td>
+</tr>
+<tr>
+	<td>{{form.ACM3_sn_psv.label}}{{form.ACM3_sn_psv()}}</td>
+	<td>{{form.ACM3_sn_vm.label}} {{form.ACM3_sn_vm()}}</td>
+	<td>{{form.ACM3_sn_edv.label}}{{form.ACM3_sn_edv()}}</td>
+	<td>{{form.ACM3_sn_pi.label}} {{form.ACM3_sn_pi()}}</td>
+	<td>{{form.ACM3_sn_ri.label}} {{form.ACM3_sn_ri()}}</td>
+	<td>{{form.ACM3_sn_mm.label}} {{form.ACM3_sn_mm()}}</td>
+</tr>
+<tr>
 	<td>{{form.ACA_sn_psv.label}}{{form.ACA_sn_psv()}}</td>
 	<td>{{form.ACA_sn_vm.label}} {{form.ACA_sn_vm()}}</td>
 	<td>{{form.ACA_sn_edv.label}}{{form.ACA_sn_edv()}}</td>
 	<td>{{form.ACA_sn_pi.label}} {{form.ACA_sn_pi()}}</td>
 	<td>{{form.ACA_sn_ri.label}} {{form.ACA_sn_ri()}}</td>
+	<td>{{form.ACA_sn_mm.label}} {{form.ACA_sn_mm()}}</td>
 </tr>
 <tr>
-	<td>{{form.P1_sn_mm.label}} {{form.P1_sn_mm()}}</td>
-	<td>{{form.P1_sn_psv.label}}{{form.P1_sn_psv()}}</td>
-	<td>{{form.P1_sn_vm.label}} {{form.P1_sn_vm()}}</td>
-	<td>{{form.P1_sn_edv.label}}{{form.P1_sn_edv()}}</td>
-	<td>{{form.P1_sn_pi.label}} {{form.P1_sn_pi()}}</td>
-	<td>{{form.P1_sn_ri.label}} {{form.P1_sn_ri()}}</td>
+	<td>{{form.P1pre_sn_psv.label}}{{form.P1pre_sn_psv()}}</td>
+	<td>{{form.P1pre_sn_vm.label}} {{form.P1pre_sn_vm()}}</td>
+	<td>{{form.P1pre_sn_edv.label}}{{form.P1pre_sn_edv()}}</td>
+	<td>{{form.P1pre_sn_pi.label}} {{form.P1pre_sn_pi()}}</td>
+	<td>{{form.P1pre_sn_ri.label}} {{form.P1pre_sn_ri()}}</td>
+	<td>{{form.P1pre_sn_mm.label}} {{form.P1pre_sn_mm()}}</td>
 </tr>
 <tr>
-	<td>{{form.P2_sn_mm.label}} {{form.P2_sn_mm()}}</td>
+	<td>{{form.P1post_sn_psv.label}}{{form.P1post_sn_psv()}}</td>
+	<td>{{form.P1post_sn_vm.label}} {{form.P1post_sn_vm()}}</td>
+	<td>{{form.P1post_sn_edv.label}}{{form.P1post_sn_edv()}}</td>
+	<td>{{form.P1post_sn_pi.label}} {{form.P1post_sn_pi()}}</td>
+	<td>{{form.P1post_sn_ri.label}} {{form.P1post_sn_ri()}}</td>
+	<td>{{form.P1post_sn_mm.label}} {{form.P1post_sn_mm()}}</td>
+</tr>
+<tr>
 	<td>{{form.P2_sn_psv.label}}{{form.P2_sn_psv()}}</td>
 	<td>{{form.P2_sn_vm.label}} {{form.P2_sn_vm()}}</td>
 	<td>{{form.P2_sn_edv.label}}{{form.P2_sn_edv()}}</td>
 	<td>{{form.P2_sn_pi.label}} {{form.P2_sn_pi()}}</td>
 	<td>{{form.P2_sn_ri.label}} {{form.P2_sn_ri()}}</td>
+	<td>{{form.P2_sn_mm.label}} {{form.P2_sn_mm()}}</td>
 </tr>
 </table>
 <hr />
@@ -280,64 +308,88 @@
 {{form.tm_dx_okno.label}}{{form.tm_dx_okno()}}<br />
 <table>
 <tr>
-	<td>{{form.ACM_dx_mm.label}} {{form.ACM_dx_mm()}}</td>
 	<td>{{form.ACM_dx_psv.label}}{{form.ACM_dx_psv()}}</td>
 	<td>{{form.ACM_dx_vm.label}} {{form.ACM_dx_vm()}}</td>
 	<td>{{form.ACM_dx_edv.label}}{{form.ACM_dx_edv()}}</td>
 	<td>{{form.ACM_dx_pi.label}} {{form.ACM_dx_pi()}}</td>
 	<td>{{form.ACM_dx_ri.label}} {{form.ACM_dx_ri()}}</td>
+	<td>{{form.ACM_dx_mm.label}} {{form.ACM_dx_mm()}}</td>
 </tr>
 <tr>
-	<td>{{form.ACA_dx_mm.label}} {{form.ACA_dx_mm()}}</td>
+	<td>{{form.ACM2_dx_psv.label}}{{form.ACM2_dx_psv()}}</td>
+	<td>{{form.ACM2_dx_vm.label}} {{form.ACM2_dx_vm()}}</td>
+	<td>{{form.ACM2_dx_edv.label}}{{form.ACM2_dx_edv()}}</td>
+	<td>{{form.ACM2_dx_pi.label}} {{form.ACM2_dx_pi()}}</td>
+	<td>{{form.ACM2_dx_ri.label}} {{form.ACM2_dx_ri()}}</td>
+	<td>{{form.ACM2_dx_mm.label}} {{form.ACM2_dx_mm()}}</td>
+</tr>
+<tr>
+	<td>{{form.ACM3_dx_psv.label}}{{form.ACM3_dx_psv()}}</td>
+	<td>{{form.ACM3_dx_vm.label}} {{form.ACM3_dx_vm()}}</td>
+	<td>{{form.ACM3_dx_edv.label}}{{form.ACM3_dx_edv()}}</td>
+	<td>{{form.ACM3_dx_pi.label}} {{form.ACM3_dx_pi()}}</td>
+	<td>{{form.ACM3_dx_ri.label}} {{form.ACM3_dx_ri()}}</td>
+	<td>{{form.ACM3_dx_mm.label}} {{form.ACM3_dx_mm()}}</td>
+</tr>
+<tr>
 	<td>{{form.ACA_dx_psv.label}}{{form.ACA_dx_psv()}}</td>
 	<td>{{form.ACA_dx_vm.label}} {{form.ACA_dx_vm()}}</td>
 	<td>{{form.ACA_dx_edv.label}}{{form.ACA_dx_edv()}}</td>
 	<td>{{form.ACA_dx_pi.label}} {{form.ACA_dx_pi()}}</td>
 	<td>{{form.ACA_dx_ri.label}} {{form.ACA_dx_ri()}}</td>
+	<td>{{form.ACA_dx_mm.label}} {{form.ACA_dx_mm()}}</td>
 </tr>
 <tr>
-	<td>{{form.P1_dx_mm.label}} {{form.P1_dx_mm()}}</td>
-	<td>{{form.P1_dx_psv.label}}{{form.P1_dx_psv()}}</td>
-	<td>{{form.P1_dx_vm.label}} {{form.P1_dx_vm()}}</td>
-	<td>{{form.P1_dx_edv.label}}{{form.P1_dx_edv()}}</td>
-	<td>{{form.P1_dx_pi.label}} {{form.P1_dx_pi()}}</td>
-	<td>{{form.P1_dx_ri.label}} {{form.P1_dx_ri()}}</td>
+	<td>{{form.P1pre_dx_psv.label}}{{form.P1pre_dx_psv()}}</td>
+	<td>{{form.P1pre_dx_vm.label}} {{form.P1pre_dx_vm()}}</td>
+	<td>{{form.P1pre_dx_edv.label}}{{form.P1pre_dx_edv()}}</td>
+	<td>{{form.P1pre_dx_pi.label}} {{form.P1pre_dx_pi()}}</td>
+	<td>{{form.P1pre_dx_ri.label}} {{form.P1pre_dx_ri()}}</td>
+	<td>{{form.P1pre_dx_mm.label}} {{form.P1pre_dx_mm()}}</td>
 </tr>
 <tr>
-	<td>{{form.P2_dx_mm.label}} {{form.P2_dx_mm()}}</td>
+	<td>{{form.P1post_dx_psv.label}}{{form.P1post_dx_psv()}}</td>
+	<td>{{form.P1post_dx_vm.label}} {{form.P1post_dx_vm()}}</td>
+	<td>{{form.P1post_dx_edv.label}}{{form.P1post_dx_edv()}}</td>
+	<td>{{form.P1post_dx_pi.label}} {{form.P1post_dx_pi()}}</td>
+	<td>{{form.P1post_dx_ri.label}} {{form.P1post_dx_ri()}}</td>
+	<td>{{form.P1post_dx_mm.label}} {{form.P1post_dx_mm()}}</td>
+</tr>
+<tr>
 	<td>{{form.P2_dx_psv.label}}{{form.P2_dx_psv()}}</td>
 	<td>{{form.P2_dx_vm.label}} {{form.P2_dx_vm()}}</td>
 	<td>{{form.P2_dx_edv.label}}{{form.P2_dx_edv()}}</td>
 	<td>{{form.P2_dx_pi.label}} {{form.P2_dx_pi()}}</td>
 	<td>{{form.P2_dx_ri.label}} {{form.P2_dx_ri()}}</td>
+	<td>{{form.P2_dx_mm.label}} {{form.P2_dx_mm()}}</td>
 </tr>
 </table>
 
 <h1>Transforaminal</h1>
 <table>
 <tr>
-	<td>{{form.V4_sn_mm.label}} {{form.V4_sn_mm()}}</td>
 	<td>{{form.V4_sn_psv.label}}{{form.V4_sn_psv()}}</td>
 	<td>{{form.V4_sn_vm.label}} {{form.V4_sn_vm()}}</td>
 	<td>{{form.V4_sn_edv.label}}{{form.V4_sn_edv()}}</td>
 	<td>{{form.V4_sn_pi.label}} {{form.V4_sn_pi()}}</td>
 	<td>{{form.V4_sn_ri.label}} {{form.V4_sn_ri()}}</td>
+	<td>{{form.V4_sn_mm.label}} {{form.V4_sn_mm()}}</td>
 </tr>
 <tr>
-	<td>{{form.V4_dx_mm.label}} {{form.V4_dx_mm()}}</td>
 	<td>{{form.V4_dx_psv.label}}{{form.V4_dx_psv()}}</td>
 	<td>{{form.V4_dx_vm.label}} {{form.V4_dx_vm()}}</td>
 	<td>{{form.V4_dx_edv.label}}{{form.V4_dx_edv()}}</td>
 	<td>{{form.V4_dx_pi.label}} {{form.V4_dx_pi()}}</td>
 	<td>{{form.V4_dx_ri.label}} {{form.V4_dx_ri()}}</td>
+	<td>{{form.V4_dx_mm.label}} {{form.V4_dx_mm()}}</td>
 </tr>
 <tr>
-	<td>{{form.AB_mm.label}} {{form.AB_mm()}}</td>
 	<td>{{form.AB_psv.label}}{{form.AB_psv()}}</td>
 	<td>{{form.AB_vm.label}} {{form.AB_vm()}}</td>
 	<td>{{form.AB_edv.label}}{{form.AB_edv()}}</td>
 	<td>{{form.AB_pi.label}} {{form.AB_pi()}}</td>
 	<td>{{form.AB_ri.label}} {{form.AB_ri()}}</td>
+	<td>{{form.AB_mm.label}} {{form.AB_mm()}}</td>
 </tr>
 </table>
 <hr />
@@ -347,43 +399,20 @@
 </table>
 <hr />
 <hr />
-
-<p>
-{{form.echo.label}}{{form.echo()}}<br />
-{{form.echo_dilatace.label}}{{form.echo_dilatace()}}
-{{form.echo_lav.label}}{{form.echo_lav()}}
-{{form.echo_lavi.label}}{{form.echo_lavi()}}
-
-{{form.echo_lv_sys.label}}{{form.echo_lv_sys()}}
-{{form.echo_ef.label}}{{form.echo_ef()}}
-{{form.echo_fs.label}}{{form.echo_fs()}}
-{{form.echo_mapse.label}}{{form.echo_mapse()}}
-
-{{form.echo_lv_dia.label}}{{form.echo_lv_dia()}}
-{{form.echo_ea.label}}{{form.echo_ea()}}
-
-{{form.echo_rv_sys.label}}{{form.echo_rv_sys()}}
-{{form.echo_tapse.label}}{{form.echo_tapse()}}
-
-{{form.echo_co_interpretace.label}}{{form.echo_co_interpretace()}}
-{{form.echo_lvot_vti.label}}{{form.echo_lvot_vti()}}
-{{form.echo_co.label}}{{form.echo_co()}}
-{{form.echo_ci.label}}{{form.echo_ci()}}
-</p>
-<ol>
-	<li>Normal diastolic function (E &gt; A)</li>
-	<li>Impaired relaxation (E:A reversal i.e., E is &lt; A)</li>
-	<li>Pseudonormal (E:A ratio appears normal)</li>
-	<li>Restrictive filling (E:A ratio often &lt; 2)</li>
-</ol>
-<hr />
 <p>{{form.submit()}}</p>
 </form>
 
 <hr/>
 <hr/>
-<p>Provedeno duplexní sono extrakraniálního úseku karotid a vertebrobazilárního povodí na přístroji Toshiba 4D Aplio 300, M10/02918, FDA 1372071:</p>
+<p>Provedena
+{% if form.tcd.data %}
+duplexní ultrasonografie extrakraniálního úseku karotid, vertebrobazilárního povodí a transkraniální vyšetření
+{% else %}
+duplexní ultrasonografie extrakraniálního úseku karotid a vertebrobazilárního povodí
+{% endif %}
+na přístroji {{form.machine.data}}, M10/02918, FDA 1372071:</p>
 
+<p>Celková kvalita obrazu {{form.kvalita.data}}, diagnostická výtěžnost {{form.vyteznost.data}}.</p>
 <p>
 {% if form.vji.data %}
 Vena jugularis interna bilaterálně dobře kompresibilní.<br />
@@ -523,12 +552,24 @@ hůře propustné
 <i>Arteria cerebri media sinistra</i> v M1 v {{form.ACM_sn_mm.data}} mm PSV {{form.ACM_sn_psv.data}} cm/s, Vm {{form.ACM_sn_vm.data}} cm/s, EDV {{form.ACM_sn_edv.data}} cm/s, PI {{form.ACM_sn_pi.data}}, RI {{form.ACM_sn_ri.data}}.<br />
 {% endif %}
 
+{% if form.ACM2_sn_psv.data %}
+<i>Arteria cerebri media sinistra</i> v M1 v {{form.ACM2_sn_mm.data}} mm PSV {{form.ACM2_sn_psv.data}} cm/s, Vm {{form.ACM2_sn_vm.data}} cm/s, EDV {{form.ACM2_sn_edv.data}} cm/s, PI {{form.ACM2_sn_pi.data}}, RI {{form.ACM2_sn_ri.data}}.<br />
+{% endif %}
+
+{% if form.ACM3_sn_psv.data %}
+<i>Arteria cerebri media sinistra</i> v M1 v {{form.ACM3_sn_mm.data}} mm PSV {{form.ACM3_sn_psv.data}} cm/s, Vm {{form.ACM3_sn_vm.data}} cm/s, EDV {{form.ACM3_sn_edv.data}} cm/s, PI {{form.ACM3_sn_pi.data}}, RI {{form.ACM3_sn_ri.data}}.<br />
+{% endif %}
+
 {% if form.ACA_sn_psv.data %}
 <i>Arteria cerebri anterior sinistra</i> v A1 v {{form.ACA_sn_mm.data}} mm PSV {{form.ACA_sn_psv.data}} cm/s, Vm {{form.ACA_sn_vm.data}} cm/s, EDV {{form.ACA_sn_edv.data}} cm/s, PI {{form.ACA_sn_pi.data}}, RI {{form.ACA_sn_ri.data}}.<br />
 {% endif %}
 
-{% if form.P1_sn_psv.data %}
-<i>Arteria cerebri posterior sinistra</i> v P1 v {{form.P1_sn_mm.data}} mm PSV {{form.P1_sn_psv.data}} cm/s, Vm {{form.P1_sn_vm.data}} cm/s, EDV {{form.P1_sn_edv.data}} cm/s, PI {{form.P1_sn_pi.data}}, RI {{form.P1_sn_ri.data}}.<br />
+{% if form.P1pre_sn_psv.data %}
+<i>Arteria cerebri posterior sinistra</i> v P1 prekomunikantně v {{form.P1pre_sn_mm.data}} mm PSV {{form.P1pre_sn_psv.data}} cm/s, Vm {{form.P1pre_sn_vm.data}} cm/s, EDV {{form.P1pre_sn_edv.data}} cm/s, PI {{form.P1pre_sn_pi.data}}, RI {{form.P1pre_sn_ri.data}}.<br />
+{% endif %}
+
+{% if form.P1post_sn_psv.data %}
+<i>Arteria cerebri posterior sinistra</i> v P1 postkomunikantně v {{form.P1post_sn_mm.data}} mm PSV {{form.P1post_sn_psv.data}} cm/s, Vm {{form.P1post_sn_vm.data}} cm/s, EDV {{form.P1post_sn_edv.data}} cm/s, PI {{form.P1post_sn_pi.data}}, RI {{form.P1post_sn_ri.data}}.<br />
 {% endif %}
 
 {% if form.P2_sn_psv.data %}
@@ -540,12 +581,24 @@ hůře propustné
 <i>Arteria cerebri media dextra</i> v M1 v {{form.ACM_dx_mm.data}} mm PSV {{form.ACM_dx_psv.data}} cm/s, Vm {{form.ACM_dx_vm.data}} cm/s, EDV {{form.ACM_dx_edv.data}} cm/s, PI {{form.ACM_dx_pi.data}}, RI {{form.ACM_dx_ri.data}}.<br />
 {% endif %}
 
+{% if form.ACM2_dx_psv.data %}
+<i>Arteria cerebri media dextra</i> v M1 v {{form.ACM2_dx_mm.data}} mm PSV {{form.ACM2_dx_psv.data}} cm/s, Vm {{form.ACM2_dx_vm.data}} cm/s, EDV {{form.ACM2_dx_edv.data}} cm/s, PI {{form2.ACM_dx_pi.data}}, RI {{form2.ACM_dx_ri.data}}.<br />
+{% endif %}
+
+{% if form.ACM3_dx_psv.data %}
+<i>Arteria cerebri media dextra</i> v M1 v {{form.ACM3_dx_mm.data}} mm PSV {{form.ACM3_dx_psv.data}} cm/s, Vm {{form.ACM3_dx_vm.data}} cm/s, EDV {{form.ACM3_dx_edv.data}} cm/s, PI {{form.ACM3_dx_pi.data}}, RI {{form.ACM3_dx_ri.data}}.<br />
+{% endif %}
+
 {% if form.ACA_dx_psv.data %}
 <i>Arteria cerebri anterior dextra</i> v A1 v {{form.ACA_dx_mm.data}} mm PSV {{form.ACA_dx_psv.data}} cm/s, Vm {{form.ACA_dx_vm.data}} cm/s, EDV {{form.ACA_dx_edv.data}} cm/s, PI {{form.ACA_dx_pi.data}}, RI {{form.ACA_dx_ri.data}}.<br />
 {% endif %}
 
-{% if form.P1_dx_psv.data %}
-<i>Arteria cerebri posterior dextra</i> v P1 v {{form.P1_dx_mm.data}} mm PSV {{form.P1_dx_psv.data}} cm/s, Vm {{form.P1_dx_vm.data}} cm/s, EDV {{form.P1_dx_edv.data}} cm/s, PI {{form.P1_dx_pi.data}}, RI {{form.P1_dx_ri.data}}.<br />
+{% if form.P1pre_dx_psv.data %}
+<i>Arteria cerebri posterior dextra</i> v P1 prekomunikantně v {{form.P1pre_dx_mm.data}} mm PSV {{form.P1pre_dx_psv.data}} cm/s, Vm {{form.P1pre_dx_vm.data}} cm/s, EDV {{form.P1pre_dx_edv.data}} cm/s, PI {{form.P1pre_dx_pi.data}}, RI {{form.P1pre_dx_ri.data}}.<br />
+{% endif %}
+
+{% if form.P1post_dx_psv.data %}
+<i>Arteria cerebri posterior dextra</i> v P1 postkomunikantně v {{form.P1post_dx_mm.data}} mm PSV {{form.P1post_dx_psv.data}} cm/s, Vm {{form.P1post_dx_vm.data}} cm/s, EDV {{form.P1post_dx_edv.data}} cm/s, PI {{form.P1post_dx_pi.data}}, RI {{form.P1post_dx_ri.data}}.<br />
 {% endif %}
 
 {% if form.P2_dx_psv.data %}
@@ -553,28 +606,6 @@ hůře propustné
 {% endif %}
 </p>
 <p>Šíře III. komory {{form.ventricle3.data}} mm.</p>
-<p></p>
-
-{%if form.echo.data %}
-<p>
-Orientační transtorakální echokardiografie bed-side:<br />
-Bez patrné regionální poruchy kinetiky. Srdeční oddíly 
-{% if form.echo_dilatace %}
-dilatované
-{% else %}
-bez dilatace 
-{% endif %}
-(LAV {{form.echo_lav.data}} ml, LAVi {{form.echo_lavi.data}} ml/m2).<br />
-Systolická funkce levé komory {{form.echo_lv_sys.data}} (EF LK {{form.echo_ef.data}} %, fractional shortening {{form.echo_fs.data}} %, MAPSE {{form.echo_mapse.data}} mm).<br />
-Diastolická funkce levé komory {{form.echo_lv_dia.data}} (E/A {{form.echo_ea.data}}).<br />
-Srdeční výdej {{form.c_interpretace}} (LVOT VTI {{form.echo_lvot_vti.data}}, CO {{form.echo_co.data}} l/min., CI {{form.echo_ci.data}} l/min./m2).<br />
-Aortální, mitrální a trikuspidální chlopeň bez významné vady.<br />
-Tenze v plicnici nezvýšená.<br />
-Dolní dutá žíla nedilatovaná kolabujicí s dechovým cyklem.<br />
-Perikard bez separace.<br />
-</p>
-{% endif %}
-
 <p></p>
 <p><b>Závěr:</b></p>
 <p>
