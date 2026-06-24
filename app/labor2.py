@@ -1,5 +1,9 @@
-def eval( vals ):
-    vals = [float(v.replace(",",".").replace("<","").replace(">", "").strip()) for v in vals if isNumber.match(v.replace("<", "").replace(">", "").strip())]
+def eval(vals):
+    vals = [
+        float(v.replace(",", ".").replace("<", "").replace(">", "").strip())
+        for v in vals
+        if isNumber.match(v.replace("<", "").replace(">", "").strip())
+    ]
     beg = vals[0]
     end = vals[-1]
     ma = np.max(vals)
@@ -19,5 +23,3 @@ def eval( vals ):
             return f"{beg:.3f}...{end:.3f} (max. {ma:.3f}, min. {mi:.3f}, průměr {mean:.3f} +- {sd:.3f}, medián {med:.3f})"
     else:
         return f"{beg}...{end} (max. {ma:.1f}, min. {mi:.1f}, průměr {mean:.1f} +- {sd:.1f}, medián {med:.1f})"
-
-    

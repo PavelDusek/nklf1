@@ -51,37 +51,36 @@ class LaborForm(FlaskForm):
 
 
 class SonoForm(FlaskForm):
-
     tcd = BooleanField("TCD", default=True)
 
     machine = SelectField(
-            "přístroj",
-            choices = [
-                ("Canon Aplio a", "Canon Aplio a"),
-                ("Canon Aplio go", "Canon Aplio go"),
-                ("Canon Aplio i800", "Canon Aplio i800"),
-                ("Toshiba 4D Aplio 300", "Toshiba 4D Aplio 300"),
-            ],
+        "přístroj",
+        choices=[
+            ("Canon Aplio a", "Canon Aplio a"),
+            ("Canon Aplio go", "Canon Aplio go"),
+            ("Canon Aplio i800", "Canon Aplio i800"),
+            ("Toshiba 4D Aplio 300", "Toshiba 4D Aplio 300"),
+        ],
     )
 
     kvalita = SelectField(
-            "celková kvalita obrazu",
-            choices = [
-                ("excelentní", "excelentní"), #1
-                ("dobrá", "dobrá"), #2
-                ("adekvátní", "adekvátní"), #3
-                ("špatná", "špatná"), #4
-                ("nediagnostická", "nediagnostická"), #5
-            ],
+        "celková kvalita obrazu",
+        choices=[
+            ("excelentní", "excelentní"),  # 1
+            ("dobrá", "dobrá"),  # 2
+            ("adekvátní", "adekvátní"),  # 3
+            ("špatná", "špatná"),  # 4
+            ("nediagnostická", "nediagnostická"),  # 5
+        ],
     )
 
     vyteznost = SelectField(
-            "diagnostická výtěžnost",
-            choices = [
-                ("excelentní", "excelentní"), #1
-                ("dobrá", "dobrá"), #2
-                ("nedostatečná", "nedostatečná"), #3
-            ],
+        "diagnostická výtěžnost",
+        choices=[
+            ("excelentní", "excelentní"),  # 1
+            ("dobrá", "dobrá"),  # 2
+            ("nedostatečná", "nedostatečná"),  # 3
+        ],
     )
 
     year = IntegerField("rok narozeni")
@@ -105,10 +104,7 @@ class SonoForm(FlaskForm):
     )
     acc_sn_plaq_surf = SelectField(
         "pláty vlevo povrch",
-        choices=[
-            ("hladký", "hladký"),
-            ("nerovný", "nerovný")
-        ],
+        choices=[("hladký", "hladký"), ("nerovný", "nerovný")],
     )
 
     aci_sn_laminar = BooleanField("ACI sin laminar", default=True)
@@ -142,18 +138,18 @@ class SonoForm(FlaskForm):
     aci_sn_sub_mm = IntegerField("ACI sin sub mm")
 
     ace_sn_psv = IntegerField("ACE sin PSV")
-    ace_sn_vm  = IntegerField("ACE sin Vm")
+    ace_sn_vm = IntegerField("ACE sin Vm")
     ace_sn_edv = IntegerField("ACE sin EDV")
-    ace_sn_pi  = FloatField("ACE sin PI")
-    ace_sn_ri  = FloatField("ACE sin RI")
-    ace_sn_mm  = FloatField("ACE sin mm")
+    ace_sn_pi = FloatField("ACE sin PI")
+    ace_sn_ri = FloatField("ACE sin RI")
+    ace_sn_mm = FloatField("ACE sin mm")
 
     sub_sn_psv = IntegerField("Subclavia sin PSV")
-    sub_sn_vm  = IntegerField("Subclavia sin Vm")
+    sub_sn_vm = IntegerField("Subclavia sin Vm")
     sub_sn_edv = IntegerField("Subclavia sin EDV")
-    sub_sn_pi  = FloatField("Subclavia sin PI")
-    sub_sn_ri  = FloatField("Subclavia sin RI")
-    sub_sn_mm  = FloatField("Subclavia sin mm")
+    sub_sn_pi = FloatField("Subclavia sin PI")
+    sub_sn_ri = FloatField("Subclavia sin RI")
+    sub_sn_mm = FloatField("Subclavia sin mm")
 
     v0_sn_psv = IntegerField("V0 sin PSV")
     v0_sn_vm = IntegerField("V0 sin Vm")
@@ -195,27 +191,24 @@ class SonoForm(FlaskForm):
     )
     acc_dx_plaq_surf = SelectField(
         "pláty vpravo povrch",
-        choices=[
-            ("hladký", "hladký"),
-            ("nerovný", "nerovný")
-        ],
+        choices=[("hladký", "hladký"), ("nerovný", "nerovný")],
     )
 
     aci_dx_laminar = BooleanField("ACI sin laminar", default=True)
 
     acc_dx_psv = IntegerField("ACC dx PSV")
-    acc_dx_vm  = IntegerField("ACC dx Vm")
+    acc_dx_vm = IntegerField("ACC dx Vm")
     acc_dx_edv = IntegerField("ACC dx EDV")
-    acc_dx_pi  = FloatField("ACC dx PI")
-    acc_dx_ri  = FloatField("ACC dx RI")
-    acc_dx_mm  = FloatField("ACC dx mm")
+    acc_dx_pi = FloatField("ACC dx PI")
+    acc_dx_ri = FloatField("ACC dx RI")
+    acc_dx_mm = FloatField("ACC dx mm")
 
     aci_dx_prox_psv = IntegerField("ACI dx prox PSV")
-    aci_dx_prox_vm  = IntegerField("ACI dx prox Vm")
+    aci_dx_prox_vm = IntegerField("ACI dx prox Vm")
     aci_dx_prox_edv = IntegerField("ACI dx prox EDV")
-    aci_dx_prox_pi  = FloatField("ACI dx prox PI")
-    aci_dx_prox_ri  = FloatField("ACI dx prox RI")
-    aci_dx_prox_mm  = FloatField("ACI dx prox mm")
+    aci_dx_prox_pi = FloatField("ACI dx prox PI")
+    aci_dx_prox_ri = FloatField("ACI dx prox RI")
+    aci_dx_prox_mm = FloatField("ACI dx prox mm")
 
     aci_dx_dist_psv = IntegerField("ACI dx dist PSV")
     aci_dx_dist_vm = IntegerField("ACI dx dist Vm")
@@ -232,19 +225,19 @@ class SonoForm(FlaskForm):
     aci_dx_sub_mm = IntegerField("ACI dx sub mm")
 
     ace_dx_psv = IntegerField("ACE dx PSV")
-    ace_dx_vm  = IntegerField("ACE dx Vm")
+    ace_dx_vm = IntegerField("ACE dx Vm")
     ace_dx_edv = IntegerField("ACE dx EDV")
-    ace_dx_pi  = FloatField("ACE dx PI")
-    ace_dx_ri  = FloatField("ACE dx RI")
-    ace_dx_mm  = FloatField("ACE dx mm")
+    ace_dx_pi = FloatField("ACE dx PI")
+    ace_dx_ri = FloatField("ACE dx RI")
+    ace_dx_mm = FloatField("ACE dx mm")
 
     sub_dx_psv = IntegerField("Subclavia dx PSV")
     sub_dx_psv = IntegerField("Subclavia dx PSV")
-    sub_dx_vm  = IntegerField("Subclavia dx Vm")
+    sub_dx_vm = IntegerField("Subclavia dx Vm")
     sub_dx_edv = IntegerField("Subclavia dx EDV")
-    sub_dx_pi  = FloatField("Subclavia dx PI")
-    sub_dx_ri  = FloatField("Subclavia dx RI")
-    sub_dx_mm  = FloatField("Subclavia dx mm")
+    sub_dx_pi = FloatField("Subclavia dx PI")
+    sub_dx_ri = FloatField("Subclavia dx RI")
+    sub_dx_mm = FloatField("Subclavia dx mm")
 
     v0_dx_psv = IntegerField("V0 dx PSV")
     v0_dx_vm = IntegerField("V0 dx Vm")

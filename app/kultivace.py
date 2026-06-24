@@ -1,6 +1,7 @@
 # coding: utf-8
 import re
 
+
 def parseCitlivost(txt):
     getNumbers = re.compile(r"(\d+)", re.UNICODE)
 
@@ -48,7 +49,9 @@ def parse(txt):
 
     getMaterial = re.compile(r"Biologický materiál (.*)$", re.UNICODE | re.MULTILINE)
     getDatetime = re.compile(r"Datum a doba příjmu (.*)$", re.UNICODE | re.MULTILINE)
-    getKultivace = re.compile(r"Primokultura(.*?)(UVOLNIL|---+)", re.UNICODE | re.DOTALL)
+    getKultivace = re.compile(
+        r"Primokultura(.*?)(UVOLNIL|---+)", re.UNICODE | re.DOTALL
+    )
     getBlanks = re.compile(r" +")
     getCitlivost = re.compile(r"CITLIVOST.*$", re.UNICODE | re.DOTALL)
     getNumbers = re.compile(r"(\d+)", re.UNICODE)
